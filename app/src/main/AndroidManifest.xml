@@ -13,16 +13,16 @@
         android:theme="@style/Theme.Consulta_Facil"
         tools:targetApi="31">
         <activity
-            android:name=".upas_proximas"
-            android:exported="false" />
+            android:name=".atestado_prescricao"
+            android:exported="true" />
         <activity
-            android:name=".meus_exames"
-            android:exported="false" />
+            android:name=".cancelar_tela"
+            android:exported="true" />
         <activity
-            android:name=".minhas_consultas"
-            android:exported="false" />
+            android:name=".detalhes_exame"
+            android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".detalhes_consulta"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
