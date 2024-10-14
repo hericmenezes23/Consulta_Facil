@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/exame_tela"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,16 +10,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginBottom="32dp"
         android:gravity="center_vertical"
-        android:layout_marginBottom="32dp">
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/image_view_medico"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_launcher_background"
-            android:contentDescription="Imagem do médico"/>
+            android:contentDescription="Imagem do médico"
+            android:src="@drawable/consulta" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -32,40 +33,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dr. José Marcelino"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/text_especialidade"
+                android:id="@+id/text_especialidade_medico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="CLINICO GERAL"
-                android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginTop="4dp"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/text_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11/11/2024"
-                android:textSize="16sp"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp"
+                android:text="22/09/2023"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginBottom="32dp"
         android:gravity="center_vertical"
-        android:layout_marginBottom="32dp">
+        android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/image_view_endereço"
+            android:id="@+id/image_view"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_launcher_background"
-            android:contentDescription="Imagem do médico"/>
+            android:contentDescription="Imagem do médico"
+            android:src="@drawable/exame" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -75,20 +76,20 @@
             android:paddingStart="16dp">
 
             <TextView
-                android:id="@+id/text_nome_endereço"
+                android:id="@+id/text_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Endereço"
-                android:textSize="16sp"/>
+                android:text="Tipo de Exame:"
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/text_endereço"
+                android:id="@+id/text_especialidade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rua General Sampaio 1325"
-                android:textStyle="bold"
+                android:layout_marginTop="4dp"
+                android:text="Exame de Sangue"
                 android:textSize="16sp"
-                android:layout_marginTop="4dp"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>
@@ -96,12 +97,12 @@
     <!-- Botões -->
 
     <Button
-        android:id="@+id/button_prescricao"
+        android:id="@+id/button_resultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CANCELAR CONSULTA"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:textColor="@android:color/white"
-        android:padding="16dp"/>
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:padding="16dp"
+        android:text="RESULTADO DO EXAME"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
