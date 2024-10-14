@@ -22,8 +22,38 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val buttonClick = findViewById<ImageButton>(R.id.button_meus_exames)
-        buttonClick.setOnClickListener {
+        val bt_consultas = findViewById<ImageButton>(R.id.button_minhas_consultas)
+        bt_consultas.setOnClickListener {
+            val intent = Intent(this, minhas_consultas::class.java)
+            startActivity(intent)
+        }
+
+        val bt_exames = findViewById<ImageButton>(R.id.button_meus_exames)
+        bt_exames.setOnClickListener {
+            val intent = Intent(this, minhas_consultas::class.java)
+            startActivity(intent)
+        }
+
+        val bt_upas_proximas = findViewById<ImageButton>(R.id.button_upas_proximas)
+        bt_upas_proximas.setOnClickListener {
+            val intent = Intent(this, minhas_consultas::class.java)
+            startActivity(intent)
+        }
+
+        val bt_cirurgias = findViewById<ImageButton>(R.id.button_minhas_cirurgias)
+        bt_cirurgias.setOnClickListener {
+            val intent = Intent(this, minhas_consultas::class.java)
+            startActivity(intent)
+        }
+
+        val bt_atestados_prescricoes = findViewById<ImageButton>(R.id.button_atestados_prescricoes)
+        bt_atestados_prescricoes.setOnClickListener {
+            val intent = Intent(this, minhas_consultas::class.java)
+            startActivity(intent)
+        }
+
+        val bt_vacinas = findViewById<ImageButton>(R.id.button_minhas_vacinas)
+        bt_vacinas.setOnClickListener {
             val intent = Intent(this, minhas_consultas::class.java)
             startActivity(intent)
         }
