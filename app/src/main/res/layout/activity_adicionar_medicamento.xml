@@ -8,7 +8,7 @@
     tools:context=".Adicionar_medicamento">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/botao_sim"
         android:layout_width="266dp"
         android:layout_height="66dp"
         android:layout_marginTop="24dp"

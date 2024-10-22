@@ -51,6 +51,18 @@
         <activity
             android:name=".MarcarCirurgia"
             android:exported="true" />
+        <activity
+            android:name=".Primeiro_Acesso"
+            android:exported="true" />
+        <activity
+            android:name=".Primeiro_Acesso2"
+            android:exported="true" />
+        <activity
+            android:name=".Primeiro_Acesso3"
+            android:exported="true" />
+        <activity
+            android:name=".Primeiro_acesso4"
+            android:exported="true" />
     </application>
 
 </manifest>

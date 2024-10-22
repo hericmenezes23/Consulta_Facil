@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputEditText8" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonAvancar"
         android:layout_width="144dp"
         android:layout_height="66dp"
         android:layout_marginTop="100dp"

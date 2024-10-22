@@ -46,10 +46,10 @@ class Menu : AppCompatActivity() {
         //    startActivity(intent)
         //}
 
-        //val bt_vacinas = findViewById<ImageButton>(R.id.button_minhas_vacinas)
-        //bt_vacinas.setOnClickListener {
-        //    val intent = Intent(this, minhas_vacinas::class.java)
-        //    startActivity(intent)
-        //}
+        val bt_vacinas = findViewById<ImageButton>(R.id.button_minhas_vacinas)
+        bt_vacinas.setOnClickListener {
+            val intent = Intent(this, PacientesVacinas::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -13,7 +13,7 @@ class cancelar_tela : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_cancelar_tela)
 
-        val buttonNegar = findViewById<Button>(R.id.btn_no)
+        val buttonNegar = findViewById<Button>(R.id.botao_nao)
         val buttonConfirmar = findViewById<Button>(R.id.btn_yes)
 
         buttonNegar.setOnClickListener{
