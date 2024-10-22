@@ -1,6 +1,8 @@
 package com.example.consulta_facil
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +13,26 @@ class meus_exames : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_meus_exames)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        val Exame1 = findViewById<ImageButton>(R.id.imageView2)
+        val Exame2 = findViewById<ImageButton>(R.id.imageView3)
+        val Exame3 = findViewById<ImageButton>(R.id.imageView4)
+        val Exame4 = findViewById<ImageButton>(R.id.imageView5)
+
+        Exame1.setOnClickListener{
+            val intent = Intent(this, detalhes_exame::class.java)
+            startActivity(intent)
+        }
+        Exame2.setOnClickListener{
+            val intent = Intent(this, detalhes_exame::class.java)
+            startActivity(intent)
+        }
+        Exame3.setOnClickListener{
+            val intent = Intent(this, detalhes_exame::class.java)
+            startActivity(intent)
+        }
+        Exame4.setOnClickListener{
+            val intent = Intent(this, detalhes_exame::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -68,7 +68,7 @@
             android:paddingVertical="10dp">
 
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView2"
                 android:layout_width="194dp"
                 android:layout_height="match_parent"
@@ -113,7 +113,7 @@
             android:paddingVertical="10dp">
 
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView3"
                 android:layout_width="194dp"
                 android:layout_height="match_parent"
@@ -156,7 +156,7 @@
             android:orientation="horizontal"
             android:paddingVertical="10dp">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView4"
                 android:layout_width="194dp"
                 android:layout_height="match_parent"
@@ -203,7 +203,7 @@
             android:paddingVertical="10dp">
 
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView5"
                 android:layout_width="194dp"
                 android:layout_height="match_parent"
