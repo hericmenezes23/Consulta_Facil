@@ -66,6 +66,15 @@
         <activity
             android:name=".Menu_medico"
             android:exported="true" />
+        <activity android:name=".Pacientes"
+            android:exported="true" />
+        <activity android:name=".PacientesVacinas"
+            android:exported="true" />
+        <activity android:name=".ConsultaMedico"
+            android:exported="true" />
+        <activity android:name=".EmitirAtestadosPrescricoes"
+            android:exported="true" />
+
     </application>
 
 </manifest>
