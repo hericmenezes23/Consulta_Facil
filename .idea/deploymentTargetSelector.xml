@@ -5,16 +5,13 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="Primeiro_Acesso">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="Primeiro_Acesso2">
+      <SelectionState runConfigName="Menu">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="Primeiro_Acesso3">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="Primeiro_acesso4">
+      <SelectionState runConfigName="Menu_medico">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
