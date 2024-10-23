@@ -1,5 +1,6 @@
 package com.example.consulta_facil
 
+import android.content.Intent
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import android.os.Bundle
@@ -17,10 +18,14 @@ class atestado_prescricao : AppCompatActivity() {
 
         buttonAtestado.setOnClickListener{
             Toast.makeText(this, "Seu atestado está sendo imprimido", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Menu::class.java)
+            startActivity(intent)
         }
 
         buttonPrescricao.setOnClickListener{
             Toast.makeText(this, "Sua prescrição está sendo imprimida", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Menu::class.java)
+            startActivity(intent)
         }
 
     }
