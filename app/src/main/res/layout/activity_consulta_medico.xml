@@ -34,9 +34,11 @@
 
                     <ImageButton
                         android:id="@+id/button_emitir_exames"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:layout_weight="1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/consulta"
                         tools:srcCompat="@tools:sample/avatars" />
 
                     <TextView
@@ -57,9 +59,11 @@
 
                     <ImageButton
                         android:id="@+id/button_marcar_cirurgia"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:layout_weight="1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/consulta"
                         tools:srcCompat="@tools:sample/avatars" />
 
                     <TextView
@@ -87,9 +91,12 @@
 
                     <ImageButton
                         android:id="@+id/button_emitir_atestados_prescricoes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:layout_weight="1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/lista"
+                        tools:src="@drawable/lista"
                         tools:srcCompat="@tools:sample/avatars" />
 
                     <TextView

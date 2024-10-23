@@ -12,8 +12,5 @@ class Minhas_cirurgias : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_minhas_cirurgias)
 
-
-
-        }
     }
 }
