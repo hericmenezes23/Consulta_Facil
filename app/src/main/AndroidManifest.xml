@@ -30,11 +30,6 @@
         <activity
             android:name=".detalhes_consulta"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".minhas_consultas"
@@ -53,7 +48,13 @@
             android:exported="true" />
         <activity
             android:name=".Primeiro_Acesso"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Primeiro_Acesso2"
             android:exported="true" />
@@ -63,6 +64,28 @@
         <activity
             android:name=".Primeiro_acesso4"
             android:exported="true" />
+        <activity
+            android:name=".Menu_medico"
+            android:exported="true" />
+        <activity
+            android:name=".Pacientes"
+            android:exported="true" />
+        <activity
+            android:name=".PacientesVacinas"
+            android:exported="true" />
+        <activity
+            android:name=".ConsultaMedico"
+            android:exported="true" />
+        <activity
+            android:name=".Emitir_vacinas"
+            android:exported="true" />
+        <activity
+            android:name=".Atestados_e_precicoes"
+            android:exported="true" />
+        <activity
+            android:name=".EmitirExames"
+            android:exported="true" />
+
     </application>
 
 </manifest>

@@ -13,7 +13,7 @@ class PacientesVacinas : AppCompatActivity() {
 
         val p1 = findViewById<TextView>(R.id.paciente_vacina1)
         p1.setOnClickListener {
-            val intent = Intent(this, PacientesVacinas::class.java)
+            val intent = Intent(this, Emitir_vacinas::class.java)
             startActivity(intent)
         }
     }

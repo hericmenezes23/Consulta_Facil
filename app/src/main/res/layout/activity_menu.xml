@@ -161,6 +161,8 @@
                         android:layout_height="150dp"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
+                        android:src="@drawable/lista"
+                        tools:src="@drawable/lista"
                         tools:srcCompat="@drawable/lista" />
 
                     <TextView
