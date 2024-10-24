@@ -18,7 +18,6 @@ class Primeiro_Acesso3 : AppCompatActivity() {
 
         val botaoAvancar = findViewById<Button>(R.id.buttonAvancar)
         val crmCampo = findViewById<EditText>(R.id.CRMinput)
-        val intentMedico = Intent(this, Menu_medico::class.java)
         val intentPaciente = Intent(this, Primeiro_acesso4::class.java)
 
         crmCampo.addTextChangedListener(object : TextWatcher {
@@ -55,6 +54,8 @@ class Primeiro_Acesso3 : AppCompatActivity() {
                 startActivity(intentPaciente)
             }
             if(crmCampo.getText().toString().trim().length == 6){
+                Toast.makeText(this, "Indo para menu medico", Toast.LENGTH_SHORT).show();
+                val intentMedico = Intent(this, Menu_medico::class.java)
                 startActivity(intentMedico)
             } else {
                 Toast.makeText(this, "Digite um CRM válido", Toast.LENGTH_SHORT).show();
