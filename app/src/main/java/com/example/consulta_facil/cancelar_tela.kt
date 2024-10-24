@@ -22,6 +22,8 @@ class cancelar_tela : AppCompatActivity() {
         }
         buttonConfirmar.setOnClickListener{
             Toast.makeText(this, "Sua consulta foi cancelada", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Menu::class.java)
+            startActivity(intent)
         }
 
     }

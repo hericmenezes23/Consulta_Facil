@@ -51,7 +51,7 @@
                         android:layout_height="150dp"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
-                        tools:srcCompat="@drawable/consulta" />
+                        android:src="@drawable/consulta" />
 
                     <TextView
                         android:id="@+id/textView2"
@@ -75,7 +75,7 @@
                         android:layout_height="150dp"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
-                        tools:srcCompat="@drawable/exame" />
+                        android:src="@drawable/exame" />
 
                     <TextView
                         android:id="@+id/textView3"
@@ -106,7 +106,7 @@
                         android:layout_height="150dp"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
-                        tools:srcCompat="@drawable/consulta" />
+                        android:src="@drawable/consulta" />
 
                     <TextView
                         android:id="@+id/textView4"
@@ -130,7 +130,7 @@
                         android:layout_height="150dp"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
-                        tools:srcCompat="@drawable/hospital" />
+                        android:src="@drawable/hospital" />
 
                     <TextView
                         android:id="@+id/textView5"
@@ -161,6 +161,8 @@
                         android:layout_height="150dp"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
+                        android:src="@drawable/lista"
+                        tools:src="@drawable/lista"
                         tools:srcCompat="@drawable/lista" />
 
                     <TextView
@@ -185,7 +187,7 @@
                         android:layout_height="150dp"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
-                        tools:srcCompat="@drawable/vacina" />
+                        android:src="@drawable/vacina" />
 
                     <TextView
                         android:id="@+id/textView7"

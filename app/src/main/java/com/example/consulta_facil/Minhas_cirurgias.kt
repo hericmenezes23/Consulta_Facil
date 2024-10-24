@@ -6,10 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class upas_proximas : AppCompatActivity() {
+class Minhas_cirurgias : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_upas_proximas)
+        setContentView(R.layout.activity_minhas_cirurgias)
+
     }
 }

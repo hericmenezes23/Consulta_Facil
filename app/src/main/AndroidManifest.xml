@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Consulta_Facil"
         tools:targetApi="31">
         <activity
+            android:name=".Minhas_cirurgias"
+            android:exported="false" />
+        <activity
             android:name=".buscador_ia"
             android:exported="true" />
         <activity
@@ -73,6 +76,9 @@
         <activity android:name=".ConsultaMedico"
             android:exported="true" />
         <activity android:name=".EmitirAtestadosPrescricoes"
+            android:exported="true" />
+         <activity
+            android:name=".Emitir_vacinas"
             android:exported="true" />
 
     </application>
