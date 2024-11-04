@@ -24,7 +24,7 @@ class ConsultaMedico : AppCompatActivity() {
             startActivity(intent)
         }
         Atestadoprescricao.setOnClickListener{
-            val intent = Intent(this, Atestados_e_precicoes::class.java)
+            val intent = Intent(this, atestado_prescricao::class.java)
             startActivity(intent)
         }
 
