@@ -19,7 +19,7 @@ class Primeiro_acesso4 : AppCompatActivity() {
             startActivity(intent)
         }
         botao_nao.setOnClickListener{
-            val intent = Intent(this, Primeiro_Acesso::class.java)
+            val intent = Intent(this, Primeiro_Acesso2::class.java)
             startActivity(intent)
         }
 

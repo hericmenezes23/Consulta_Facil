@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "540798465948",
+    "project_id": "consulta-facil-37f1a",
+    "storage_bucket": "consulta-facil-37f1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540798465948:android:8fab94f523b301c8307a59",
+        "android_client_info": {
+          "package_name": "com.example.consulta_facil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCE5SnBsPCHUMr11ttHtRM-7JBiuN-_1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
