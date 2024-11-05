@@ -27,7 +27,7 @@ class Primeiro_Acesso1 : AppCompatActivity() {
                     Toast.makeText(this, "sucess", Toast.LENGTH_SHORT).show()
 
                     for (doc in docs){
-                        if(doc.get("user1")==cpfCampo.text.toString()){
+                        if(doc.get("user")==cpfCampo.text.toString()){
                             Toast.makeText(
                                 this, "Usuario ja existe",
                                 Toast.LENGTH_LONG
@@ -37,23 +37,13 @@ class Primeiro_Acesso1 : AppCompatActivity() {
 
                     }
 
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show()
-
+                }.addOnFailureListener { exception ->
+                    Toast.makeText(this, "erro", Toast.LENGTH_SHORT).show()
+                    println(exception.message)
+                    println(exception.stackTrace)
+                    println(exception.localizedMessage)
+                    println(exception.cause)
                 }
-//                .document(cpfCampo.text.toString())
-//                .get().addOnSuccessListener {
-//                    doc ->
-//                    Toast.makeText(
-//                        this, doc.get("senha").toString(),
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                }.addOnFailureListener {
-//                    Toast.makeText(
-//                        this, "erro",
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                }
 
 //            if(cpfCampo.getText().toString().trim().length == 11){
 //                val intent = Intent(this, Primeiro_Acesso2::class.java)

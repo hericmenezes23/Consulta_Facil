@@ -47,5 +47,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.google.firebase:firebase-firestore-ktx:25.1.1")
+    implementation(libs.firebase.firestore.ktx)
 }
