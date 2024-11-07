@@ -21,22 +21,20 @@ class Primeiro_Acesso1 : AppCompatActivity() {
         setContentView(R.layout.activity_primeiro_acesso1)
         val bt_consultas = findViewById<Button>(R.id.bem_vindo_avancar)
         val nome = findViewById<EditText>(R.id.nomeInput)
-        var fb = Firebase.firestore
 
-        val userData = intent.getSerializableExtra("userData", DadosUsuario::class.java)
+        //var fb = Firebase.firestore
+        var cpf = intent.getStringExtra("cpf")
+        //val userData = intent.getSerializableExtra("userData", DadosUsuario::class.java)
 
         bt_consultas.setOnClickListener {
             if (nome.text.toString().trim().length < 3) {
                 Toast.makeText(this, "Digite um nome válido", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
-            if (userData != null) {
-                userData.nome = nome.text.toString()
-                val intent = Intent(this, Primeiro_Acesso2::class.java)
-                intent.putExtra("userData", userData)
-                startActivity(intent)
-            } else {}
+            val intent = Intent(this, NovaSenhaAcesso::class.java)
+            intent.putExtra("nome", nome.text.toString())
+            intent.putExtra("cpf", cpf)
+            startActivity(intent)
         }
     }
 }

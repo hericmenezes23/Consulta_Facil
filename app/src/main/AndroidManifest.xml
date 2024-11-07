@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Consulta_Facil"
         tools:targetApi="31">
         <activity
+            android:name=".NovaSenhaAcesso"
+            android:exported="false" />
+        <activity
             android:name=".senha_acesso"
             android:exported="false" />
         <activity
@@ -38,7 +41,7 @@
             android:exported="true" />
         <activity
             android:name=".detalhes_consulta"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".minhas_consultas"
             android:exported="true" />

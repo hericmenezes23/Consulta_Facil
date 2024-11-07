@@ -15,13 +15,13 @@ class CPF_Acesso : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cpf_acesso)
 
-        var fb = Firebase.firestore
+        val fb = Firebase.firestore
         val botaoAvancar = findViewById<Button>(R.id.cadastrar)
         val cpfCampo = findViewById<EditText>(R.id.CPFView)
-        var userData = DadosUsuario()
+        val userData = DadosUsuario()
 
         botaoAvancar.setOnClickListener{
-            if(cpfCampo.getText().toString().trim().length != 11) {
+            if(cpfCampo.text.toString().trim().length != 11) {
                 Toast.makeText(this, "Digite um CPF válido", Toast.LENGTH_SHORT).show();
                 return@setOnClickListener
             }
@@ -35,13 +35,13 @@ class CPF_Acesso : AppCompatActivity() {
                             userData.id = doc.id
                             userData.cpf = doc.get("cpf").toString()
                             val intent = Intent(this, senha_acesso::class.java)
-                            intent.putExtra("userData", userData)
+                            intent.putExtra("cpf", userData)
                             startActivity(intent)
                             break
                         }
                     }
                     val intent = Intent(this, Primeiro_Acesso1::class.java)
-                    intent.putExtra("userData", userData)
+                    intent.putExtra("cpf", cpfCampo.text.toString())
                     startActivity(intent)
 
                 }.addOnFailureListener { exception ->
