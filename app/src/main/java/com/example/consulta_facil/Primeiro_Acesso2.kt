@@ -29,9 +29,6 @@ class Primeiro_Acesso2 : AppCompatActivity() {
         val intentPaciente = Intent(this, Primeiro_Acesso3::class.java)
         val fb = Firebase.firestore
 
-//        val cpf = intent.getStringExtra("cpf")
-//        val nome = intent.getStringExtra("nome")
-
         crmCampo.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 // Não precisa implementar

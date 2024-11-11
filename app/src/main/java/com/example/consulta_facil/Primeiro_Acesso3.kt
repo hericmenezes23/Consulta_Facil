@@ -9,7 +9,7 @@ class Primeiro_Acesso3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_primeiro_acesso3)
-
+        var
         val botao_sim = findViewById<Button>(R.id.botao_sim)
 
         val botao_nao = findViewById<Button>(R.id.botao_nao)
