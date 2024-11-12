@@ -15,9 +15,9 @@ class NovaSenhaAcesso : AppCompatActivity() {
         val novaSenha = findViewById<EditText>(R.id.NovaSenha)
         val novaSenha2 = findViewById<EditText>(R.id.NovaSenha2)
 
-        var nomeNovo = intent.getStringExtra("nome")
-        var cpfNovo = intent.getStringExtra("cpf")
-
+        val nomeNovo = intent.getStringExtra("nome")
+        val cpfNovo = intent.getStringExtra("cpf")
+        val crmNovo = intent.getStringExtra("crm")
 
         sendButton.setOnClickListener {
             if (novaSenha.text.toString() != novaSenha2.text.toString()) {
@@ -29,6 +29,7 @@ class NovaSenhaAcesso : AppCompatActivity() {
             intent.putExtra("nome", nomeNovo)
             intent.putExtra("cpf", cpfNovo)
             intent.putExtra("senha", novaSenha.text.toString())
+            intent.putExtra("crm", crmNovo.toString())
 
             startActivity(intent)
         }

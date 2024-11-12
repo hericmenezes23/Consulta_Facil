@@ -2,6 +2,7 @@ package com.example.consulta_facil
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -31,13 +32,13 @@ class CPF_Acesso : AppCompatActivity() {
             fb.collection("usuarios").get()
                 .addOnSuccessListener { docs ->
                     for (doc in docs){
-                        if(doc.get("cpf")==cpfCampo.text.toString()){
-                            userData.id = doc.id
-                            userData.cpf = doc.get("cpf").toString()
+                        Log.d("DOC", doc.id)
+                        Log.d("CPF", doc.get("cpf").toString())
+                        if(doc.get("cpf").toString() == cpfCampo.text.toString()){
+                            Log.d("CPF", doc.get("cpf").toString())
+
                             val intent = Intent(this, senha_acesso::class.java)
-                            intent.putExtra("cpf", userData)
                             startActivity(intent)
-                            break
                         }
                     }
                     val intent = Intent(this, Primeiro_Acesso1::class.java)
