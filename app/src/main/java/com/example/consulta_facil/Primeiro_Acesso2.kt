@@ -20,14 +20,13 @@ class Primeiro_Acesso2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_primeiro_acesso2)
-        var nomeNovo = intent.getStringExtra("nome")
-        var cpfNovo = intent.getStringExtra("cpf")
+        val nomeNovo = intent.getStringExtra("nome")
+        val cpfNovo = intent.getStringExtra("cpf")
+        val senhaNovo = intent.getStringExtra("senha")
 
         val botaoAvancar = findViewById<Button>(R.id.buttonAvancar)
         val crmCampo = findViewById<EditText>(R.id.CRMinput)
-        val intentMedico = Intent(this, Menu_medico::class.java)
-        val intentPaciente = Intent(this, Primeiro_Acesso3::class.java)
-        val fb = Firebase.firestore
+
 
         crmCampo.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -59,34 +58,18 @@ class Primeiro_Acesso2 : AppCompatActivity() {
                 Toast.makeText(this, "Digite um CRM válido", Toast.LENGTH_SHORT).show();
                 return@setOnClickListener
             }
-//            if (userData == null) {
-//                return@setOnClickListener
-//            }
+
             Log.d("NOME", nomeNovo.toString())
             Log.d("CPF", cpfNovo.toString())
             Log.d("CRM", crmCampo.text.toString())
-            //Log.d("PASSWORD", userData.senha)
 
-            val docData = hashMapOf(
-                "user" to nomeNovo,
-                "cpf" to cpfNovo,
-                "crm" to crmCampo.text.toString(),
-                "password" to ""
-            )
-            // Salva no banco
-                fb.collection("usuarios").document().set(docData)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Salvo com sucesso", Toast.LENGTH_SHORT).show();
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Erro ao salvar", Toast.LENGTH_SHORT).show();
-                }
+            val intent = Intent(this, Primeiro_Acesso3::class.java)
+            intent.putExtra("cpf", cpfNovo)
+            intent.putExtra("nome", nomeNovo)
+            intent.putExtra("senha", senhaNovo)
+            intent.putExtra("crm", crmCampo.text.toString())
 
-            if (medico) {
-                Toast.makeText(this, "Indo para menu medico", Toast.LENGTH_SHORT).show();
-                startActivity(intentMedico)
-            } else {
-                startActivity(intentPaciente)
-            }
+            startActivity(intent)
         }
     }
 }

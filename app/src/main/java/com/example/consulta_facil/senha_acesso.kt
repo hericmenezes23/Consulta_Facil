@@ -26,13 +26,15 @@ class senha_acesso : AppCompatActivity() {
         setContentView(R.layout.activity_senha_acesso)
         val bt_senha = findViewById<Button>(R.id.EntrarSenha)
         val senha = findViewById<EditText>(R.id.SenhaView)
-        var fb = Firebase.firestore
+        val fb = Firebase.firestore
 
-        val userData = intent.getSerializableExtra("userData", DadosUsuario::class.java)
+        val idFound = intent.getStringExtra("id")
 
         bt_senha.setOnClickListener {
-            if (userData != null) {
-                fb.collection("usuarios").document(userData.id).get().addOnSuccessListener {
+            fb.collection("usuarios")
+                .document(idFound.toString())
+                .get()
+                .addOnSuccessListener {
                     doc ->
                     if (doc.get("password") == senha.text.toString()) {
                         val intent = Intent(this, Menu::class.java)
@@ -40,9 +42,8 @@ class senha_acesso : AppCompatActivity() {
                     } else {
                         Toast.makeText(this, "Senha incorreta", Toast.LENGTH_SHORT).show()
                     }
-                }.addOnFailureListener { exception ->
-                    Log.d("TAG", "get failed with ", exception)// Handle any errors
-                }
+            }.addOnFailureListener { exception ->
+                Log.d("TAG", "get failed with ", exception)// Handle any errors
             }
         }
     }

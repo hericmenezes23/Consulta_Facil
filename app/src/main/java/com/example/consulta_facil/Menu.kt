@@ -34,18 +34,6 @@ class Menu : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //val bt_cirurgias = findViewById<ImageButton>(R.id.button_minhas_cirurgias)
-        //bt_cirurgias.setOnClickListener {
-        //    val intent = Intent(this, minhas_cirurgias::class.java)
-        //    startActivity(intent)
-        //}
-
-        //val bt_atestados_prescricoes = findViewById<ImageButton>(R.id.button_atestados_prescricoes)
-        //bt_atestados_prescricoes.setOnClickListener {
-        //    val intent = Intent(this, atestados_e_prescricoes_lista::class.java)
-        //    startActivity(intent)
-        //}
-
         val bt_vacinas = findViewById<ImageButton>(R.id.button_minhas_vacinas)
         bt_vacinas.setOnClickListener {
             val intent = Intent(this, PacientesVacinas::class.java)

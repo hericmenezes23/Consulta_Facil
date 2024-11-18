@@ -15,8 +15,8 @@ class NovaSenhaAcesso : AppCompatActivity() {
         val novaSenha = findViewById<EditText>(R.id.NovaSenha)
         val novaSenha2 = findViewById<EditText>(R.id.NovaSenha2)
 
-        var nomeNovo = intent.getStringExtra("nome")
-        var cpfNovo = intent.getStringExtra("cpf")
+        val nomeNovo = intent.getStringExtra("nome")
+        val cpfNovo = intent.getStringExtra("cpf")
 
 
         sendButton.setOnClickListener {
@@ -25,7 +25,7 @@ class NovaSenhaAcesso : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val intent = Intent(this, Primeiro_Acesso3::class.java)
+            val intent = Intent(this, Primeiro_Acesso2::class.java)
             intent.putExtra("nome", nomeNovo)
             intent.putExtra("cpf", cpfNovo)
             intent.putExtra("senha", novaSenha.text.toString())

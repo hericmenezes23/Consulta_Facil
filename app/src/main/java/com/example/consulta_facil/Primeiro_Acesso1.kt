@@ -9,8 +9,6 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 class Primeiro_Acesso1 : AppCompatActivity() {
 
@@ -19,14 +17,11 @@ class Primeiro_Acesso1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_primeiro_acesso1)
-        val bt_consultas = findViewById<Button>(R.id.bem_vindo_avancar)
+        val btName = findViewById<Button>(R.id.bem_vindo_avancar)
         val nome = findViewById<EditText>(R.id.nomeInput)
+        val cpf = intent.getStringExtra("cpf")
 
-        //var fb = Firebase.firestore
-        var cpf = intent.getStringExtra("cpf")
-        //val userData = intent.getSerializableExtra("userData", DadosUsuario::class.java)
-
-        bt_consultas.setOnClickListener {
+        btName.setOnClickListener {
             if (nome.text.toString().trim().length < 3) {
                 Toast.makeText(this, "Digite um nome válido", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener

@@ -18,7 +18,6 @@ class CPF_Acesso : AppCompatActivity() {
         val fb = Firebase.firestore
         val botaoAvancar = findViewById<Button>(R.id.cadastrar)
         val cpfCampo = findViewById<EditText>(R.id.CPFView)
-        val userData = DadosUsuario()
 
         botaoAvancar.setOnClickListener{
             if(cpfCampo.text.toString().trim().length != 11) {
@@ -30,19 +29,22 @@ class CPF_Acesso : AppCompatActivity() {
             //Toast.makeText(this, cpfCampo.text.toString(), Toast.LENGTH_SHORT).show()
             fb.collection("usuarios").get()
                 .addOnSuccessListener { docs ->
+                    var idFound = ""
                     for (doc in docs){
                         if(doc.get("cpf")==cpfCampo.text.toString()){
-                            userData.id = doc.id
-                            userData.cpf = doc.get("cpf").toString()
-                            val intent = Intent(this, senha_acesso::class.java)
-                            intent.putExtra("cpf", userData)
-                            startActivity(intent)
+                            idFound = doc.id.toString()
                             break
                         }
                     }
-                    val intent = Intent(this, Primeiro_Acesso1::class.java)
-                    intent.putExtra("cpf", cpfCampo.text.toString())
-                    startActivity(intent)
+                    if (idFound == "") {
+                        val intent = Intent(this, Primeiro_Acesso1::class.java)
+                        intent.putExtra("cpf", cpfCampo.text.toString())
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(this, senha_acesso::class.java)
+                        intent.putExtra("id", idFound)
+                        startActivity(intent)
+                    }
 
                 }.addOnFailureListener { exception ->
                     Toast.makeText(this, "erro", Toast.LENGTH_SHORT).show()
