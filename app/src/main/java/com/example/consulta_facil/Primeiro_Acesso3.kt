@@ -1,65 +1,66 @@
 package com.example.consulta_facil
 
-import android.R.attr.button
 import android.content.Intent
-import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-
+import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class Primeiro_Acesso3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_primeiro_acesso3)
 
-        val botaoAvancar = findViewById<Button>(R.id.buttonAvancar)
-        val crmCampo = findViewById<EditText>(R.id.CRMinput)
-        val intentPaciente = Intent(this, Primeiro_acesso4::class.java)
+        val buttonYes = findViewById<Button>(R.id.botao_sim)
+        val buttonNo = findViewById<Button>(R.id.botao_nao)
+        var cpfTextView = findViewById<TextView>(R.id.NovoCpfView)
+        var nomeTextView = findViewById<TextView>(R.id.NovoNomeView)
+        val cpfNovo = intent.getStringExtra("cpf")
+        val nomeNovo = intent.getStringExtra("nome")
+        val senhaNovo = intent.getStringExtra("senha")
+        val crmCampo = intent.getStringExtra("crm")
+        val fb = Firebase.firestore
 
-        crmCampo.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                // Não precisa implementar
-            }
+        nomeTextView.text = "Nome: ${nomeNovo.toString()}"
+        cpfTextView.text = "CPF: ${cpfNovo.toString()}"
 
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                // Verifica se o EditText está preenchido
-                if (s.length > 0) {
-                    // Muda o texto do botão
-                    botaoAvancar.setText("Avançar")
-                } else {
-                    // Restaura o texto original
-                    botaoAvancar.setText("Pular")
+        if (cpfNovo == null || nomeNovo == null || senhaNovo == null || crmCampo == null) {
+            Toast.makeText(this, "Erro ao receber dados", Toast.LENGTH_SHORT).show();
+            return
+        }
+        buttonYes.setOnClickListener{
+            val docData = hashMapOf(
+                "user" to nomeNovo,
+                "cpf" to cpfNovo,
+                "password" to senhaNovo,
+                "crm" to crmCampo,
+            )
+            // Salva no banco
+            fb.collection("usuarios").document().set(docData)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Salvo com sucesso", Toast.LENGTH_SHORT).show();
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Erro ao salvar", Toast.LENGTH_SHORT).show();
                 }
-            }
 
-            override fun afterTextChanged(s: Editable) {
-                // Não precisa implementar
-            }
-        })
+            val intentMedico = Intent(this, Menu_medico::class.java)
+            val intentPaciente = Intent(this, Menu::class.java)
 
-       // if(crmCampo.getText().toString().trim().length != 0){
-       //     botaoAvancar.setText("Avançar")
-       //     intent = Intent(this, Menu_medico::class.java)
-       // } else {
-       //     botaoAvancar.setText("Pular")
-       //     intent = Intent(this, Primeiro_acesso4::class.java)
-       // }
-
-        botaoAvancar.setOnClickListener{
-            if(crmCampo.getText().toString().trim().length == 0){
-                startActivity(intentPaciente)
-            }
-            if(crmCampo.getText().toString().trim().length == 6){
+            if (crmCampo != "") {
                 Toast.makeText(this, "Indo para menu medico", Toast.LENGTH_SHORT).show();
-                val intentMedico = Intent(this, Menu_medico::class.java)
                 startActivity(intentMedico)
             } else {
-                Toast.makeText(this, "Digite um CRM válido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Indo para menu paciente", Toast.LENGTH_SHORT).show();
+                startActivity(intentPaciente)
             }
+        }
+        buttonNo.setOnClickListener{
+            val intent = Intent(this, Primeiro_Acesso1::class.java)
+            startActivity(intent)
         }
     }
 }

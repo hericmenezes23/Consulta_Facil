@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Consulta_Facil"
         tools:targetApi="31">
-
+        <activity
+            android:name=".NovaSenhaAcesso"
+            android:exported="false" />
+        <activity
+            android:name=".senha_acesso"
+            android:exported="false" />
         <activity
             android:name=".Minhas_cirurgias"
             android:exported="false" />
@@ -35,8 +41,7 @@
             android:exported="true" />
         <activity
             android:name=".detalhes_consulta"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".minhas_consultas"
             android:exported="true" />
@@ -53,37 +58,47 @@
             android:name=".MarcarCirurgia"
             android:exported="true" />
         <activity
-            android:name=".Primeiro_Acesso2"
+            android:name=".Primeiro_Acesso1"
             android:exported="true" />
         <activity
-            android:name=".Primeiro_Acesso1"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".Primeiro_Acesso2"
+            android:exported="true" />
         <activity
             android:name=".Primeiro_Acesso3"
             android:exported="true" />
         <activity
-            android:name=".Primeiro_acesso4"
+            android:name=".CPF_Acesso"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Primeiro_Acesso2"
+            android:exported="true" />
+        <activity
+            android:name=".Primeiro_Acesso3"
             android:exported="true" />
         <activity
             android:name=".Menu_medico"
             android:exported="true" />
-        <activity android:name=".Pacientes"
+        <activity
+            android:name=".Pacientes"
             android:exported="true" />
-        <activity android:name=".PacientesVacinas"
+        <activity
+            android:name=".PacientesVacinas"
             android:exported="true" />
-        <activity android:name=".ConsultaMedico"
+        <activity
+            android:name=".ConsultaMedico"
             android:exported="true" />
-        <activity android:name=".EmitirAtestadosPrescricoes"
+        <activity
+            android:name=".EmitirAtestadosPrescricoes"
             android:exported="true" />
-         <activity
+        <activity
             android:name=".Emitir_vacinas"
             android:exported="true" />
-
     </application>
 
 </manifest>

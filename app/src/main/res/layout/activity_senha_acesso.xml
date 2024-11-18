@@ -4,49 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Primeiro_Acesso2">
+    tools:context=".senha_acesso">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="114dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="196dp"
+        android:id="@+id/textView2"
+        android:layout_width="115dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="244dp"
         android:scaleX="3"
         android:scaleY="3"
-        android:text="Digite seu CRM se tiver:"
+        android:text="Digite sua senha"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/textInputLayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/CRMinput"
+            android:id="@+id/SenhaView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="Digite aqui seu CRM, se for o caso" />
+            android:hint="Senha"
+            android:inputType="text|textPassword|textNoSuggestions" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonAvancar"
+        android:id="@+id/EntrarSenha"
         android:layout_width="250dp"
         android:layout_height="65dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="84dp"
         android:backgroundTint="#1919FF"
-        android:text="Pular"
+        android:text="Entrar"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
