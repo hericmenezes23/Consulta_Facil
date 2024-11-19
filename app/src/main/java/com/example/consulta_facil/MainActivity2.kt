@@ -1,28 +1,23 @@
 package com.example.consulta_facil
 
-import android.content.Intent
-import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.consulta_facil.MyAdapter
+import com.example.consulta_facil.R
 
-class minhas_consultas : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity() {
     lateinit var recy: RecyclerView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_minhas_consultas)
+        setContentView(R.layout.activity_main2)
 
         val dataset = listOf<String>("Narak","Huan","Alberto","Estrogolosopeudo","Heric","Henrrique","Maia","Jubiscleudo"
             ,"Ernesto","Brandao","Atila","Pedro","Joao P.")
-        recy = findViewById(R.id.RecyclerViewConsultas)
+        recy = findViewById(R.id.RecyclerView)
         val adapter = MyAdapter(dataset)
         recy.layoutManager = LinearLayoutManager(this)
         recy.adapter = adapter
