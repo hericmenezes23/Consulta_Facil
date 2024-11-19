@@ -13,26 +13,6 @@ class meus_exames : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_meus_exames)
-        val Exame1 = findViewById<ImageButton>(R.id.imageView2)
-        val Exame2 = findViewById<ImageButton>(R.id.imageView3)
-        val Exame3 = findViewById<ImageButton>(R.id.imageView4)
-        val Exame4 = findViewById<ImageButton>(R.id.imageView5)
 
-        Exame1.setOnClickListener{
-            val intent = Intent(this, detalhes_exame::class.java)
-            startActivity(intent)
-        }
-        Exame2.setOnClickListener{
-            val intent = Intent(this, detalhes_exame::class.java)
-            startActivity(intent)
-        }
-        Exame3.setOnClickListener{
-            val intent = Intent(this, detalhes_exame::class.java)
-            startActivity(intent)
-        }
-        Exame4.setOnClickListener{
-            val intent = Intent(this, detalhes_exame::class.java)
-            startActivity(intent)
-        }
     }
 }
