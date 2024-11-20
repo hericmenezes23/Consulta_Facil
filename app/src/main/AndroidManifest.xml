@@ -43,10 +43,10 @@
             android:name=".detalhes_exame"
             android:exported="true" />
         <activity
-            android:name=".detalhes_consulta"
+            android:name=".DetalhesConsulta"
             android:exported="true" />
         <activity
-            android:name=".minhas_consultas"
+            android:name=".minhasConsultas"
             android:exported="true" />
         <activity
             android:name=".upas_proximas"

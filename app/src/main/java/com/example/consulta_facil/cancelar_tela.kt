@@ -17,7 +17,7 @@ class cancelar_tela : AppCompatActivity() {
         val buttonConfirmar = findViewById<Button>(R.id.btn_yes)
 
         buttonNegar.setOnClickListener{
-            val intent = Intent(this, detalhes_consulta::class.java)
+            val intent = Intent(this, DetalhesConsulta::class.java)
             startActivity(intent)
         }
         buttonConfirmar.setOnClickListener{

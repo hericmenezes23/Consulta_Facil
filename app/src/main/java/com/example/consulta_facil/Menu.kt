@@ -3,8 +3,6 @@ package com.example.consulta_facil
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 import android.content.Intent
 import android.widget.ImageButton
@@ -18,7 +16,7 @@ class Menu : AppCompatActivity() {
 
         val bt_consultas = findViewById<ImageButton>(R.id.button_minhas_consultas)
         bt_consultas.setOnClickListener {
-            val intent = Intent(this, minhas_consultas::class.java)
+            val intent = Intent(this, minhasConsultas::class.java)
             startActivity(intent)
         }
 

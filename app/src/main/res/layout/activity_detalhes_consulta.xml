@@ -58,14 +58,14 @@
             android:paddingStart="16dp">
 
             <TextView
-                android:id="@+id/text_nome_medico"
+                android:id="@+id/det_consulta_nome_medico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dr. José Marcelino"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/text_especialidade"
+                android:id="@+id/det_consulta_especialidade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -74,7 +74,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/text_data"
+                android:id="@+id/det_consulta_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -112,11 +112,11 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/text_endereço"
+                android:id="@+id/det_consulta_endereço"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Rua General Sampaio 1325"
+                android:text=" "
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
