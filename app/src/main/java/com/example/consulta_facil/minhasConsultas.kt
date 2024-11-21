@@ -30,15 +30,13 @@ class minhasConsultas : AppCompatActivity() {
     }
 
     // Função para buscar todas as consultas de um usuário
-    fun getUserAppointments(userId: String) : MutableList<Consulta> {
+    private fun getUserAppointments(userId: String) {
         val fb = Firebase.firestore
-        var dataset = mutableListOf<Consulta>()
+        val dataset = mutableListOf<Consulta>()
         val appointmentsRef = fb.collection("usuarios").document(userId).collection("consultas")
         appointmentsRef.get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    Log.d("CONSULTAS", "${document.id} => ${document.data}")
-                    // map the document data to a Consulta object
                     dataset.add( Consulta(
                         id = document.id,
                         nomeMedico = document.getString("doctorName"),
@@ -46,10 +44,15 @@ class minhasConsultas : AppCompatActivity() {
                         data = document.getString("date")
                     ))
                 }
+                // Configure o adapter e atualize o RecyclerView aqui:
+                recy = findViewById(R.id.RecyclerViewConsultas) // Inicialize recy aqui se ainda não tiver feito
+                val adapter = ConsultaAdapter(dataset)
+                recy.layoutManager = LinearLayoutManager(this)
+                recy.adapter = adapter
+                adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
                 Log.w("CONSULTAS", "Erro ao buscar consultas: ", exception)
             }
-        return dataset
     }
 }

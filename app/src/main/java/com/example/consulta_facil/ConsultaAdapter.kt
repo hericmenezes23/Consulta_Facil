@@ -1,5 +1,6 @@
 package com.example.consulta_facil
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,8 @@ class ConsultaAdapter(private var list:List<Consulta>):RecyclerView.Adapter<MyVi
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val context = holder.item.context
         val consulta = list[position]
+        //print list
+        Log.d("CONSULTAS", consulta.toString())
         holder.nomeMedico.text = consulta.nomeMedico
         holder.especialidade.text = consulta.especialidade
         holder.dataConsulta.text = consulta.data
@@ -30,13 +33,14 @@ class ConsultaAdapter(private var list:List<Consulta>):RecyclerView.Adapter<MyVi
     }
 
     override fun getItemCount(): Int {
+        Log.d("ConsultaAdapter", "Tamanho da lista: ${list.size}")
         return list.size
     }
 
 }
 
 class MyViewHolder (var item: View) :RecyclerView.ViewHolder(item){
-    var nomeMedico: TextView = item.findViewById(R.id.consulta_item_nome)
-    var especialidade: TextView = item.findViewById(R.id.consulta_item_especialidade)
-    var dataConsulta: TextView = item.findViewById(R.id.consulta_item_data)
+    var nomeMedico: TextView = item.findViewById(R.id.nomeMedico_consulta)
+    var especialidade: TextView = item.findViewById(R.id.especialidade_consulta)
+    var dataConsulta: TextView = item.findViewById(R.id.data_consulta)
 }
