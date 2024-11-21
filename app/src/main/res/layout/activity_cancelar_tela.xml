@@ -12,7 +12,7 @@
     <!-- Nome do médico e data -->
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_doctor_info_spec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -22,17 +22,28 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <!-- Texto de confirmação -->
+
     <TextView
-        android:id="@+id/tv_doctor_info"
+        android:id="@+id/tv_doctor_info_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dr. José Marcelino\n11 / 11 / 2024"
-        android:textSize="18sp"
-        android:textColor="#000000"
+        android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:text="Nome"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
-    <!-- Texto de confirmação -->
+    <TextView
+        android:id="@+id/tv_doctor_info_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="Data"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
     <TextView
         android:id="@+id/tv_confirmation"
         android:layout_width="wrap_content"

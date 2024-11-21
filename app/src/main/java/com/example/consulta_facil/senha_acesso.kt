@@ -37,8 +37,13 @@ class senha_acesso : AppCompatActivity() {
                 .addOnSuccessListener {
                     doc ->
                     if (doc.get("password") == senha.text.toString()) {
-                        val intent = Intent(this, Menu::class.java)
-                        startActivity(intent)
+                        if (doc.get("crm") != null) {
+                            val intent = Intent(this, Menu_medico::class.java)
+                            startActivity(intent)
+                        } else {
+                            val intent = Intent(this, Menu::class.java)
+                            startActivity(intent)
+                        }
                     } else {
                         Toast.makeText(this, "Senha incorreta", Toast.LENGTH_SHORT).show()
                     }
