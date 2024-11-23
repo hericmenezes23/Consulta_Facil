@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".meus_exames">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/top_toolbar"
         android:layout_width="match_parent"
@@ -46,6 +47,8 @@
         android:id="@+id/imageButton"
         android:layout_width="47dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/RecyclerViewExames"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,11 +56,13 @@
         app:srcCompat="@android:drawable/arrow_down_float" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecycleViewExames"
+        android:id="@+id/RecyclerViewExames"
         android:layout_width="409dp"
         android:layout_height="614dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
