@@ -6,61 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".Menu">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+    <TextView
+        android:id="@+id/textViewNameExams"
         android:layout_width="399dp"
         android:layout_height="67dp"
-        android:layout_marginTop="120dp"
-        android:hint="NOME"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Paciente"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputTypeExam"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText4"
+        android:id="@+id/textInputTypeExam"
         android:layout_width="397dp"
         android:layout_height="66dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:hint="TIPO DE EXAME"
+        app:layout_constraintBottom_toTopOf="@+id/textInputDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintTop_toBottomOf="@id/textViewNameExams" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText3"
+        android:id="@+id/textInputDate"
         android:layout_width="399dp"
         android:layout_height="69dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:hint="DATA DO EXAME"
+        app:layout_constraintBottom_toTopOf="@+id/textInputHour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputTypeExam" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText2"
+        android:id="@+id/textInputHour"
         android:layout_width="402dp"
         android:layout_height="62dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:hint="HORA DO EXAME"
+        app:layout_constraintBottom_toTopOf="@+id/mySpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.777"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText3" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputDate" />
+
+    <Spinner
+        android:id="@+id/mySpinner"
+        android:layout_width="402dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/cadastrarConsulta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputHour" />
 
     <Button
-        android:id="@+id/cadastrar"
+        android:id="@+id/cadastrarConsulta"
         android:layout_width="153dp"
         android:layout_height="59dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="109dp"
         android:text="Confirmar"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#ED0000"
         android:textColorHint="#FF0404"
         android:textColorLink="#E600FF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputHour"
         app:rippleColor="#AF0909"
         app:strokeColor="#BC0808" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="-47dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

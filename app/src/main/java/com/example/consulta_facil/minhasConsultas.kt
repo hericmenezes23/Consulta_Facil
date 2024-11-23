@@ -23,10 +23,6 @@ class minhasConsultas : AppCompatActivity() {
         dataset.forEach {
             Log.d("CONSULTAS", it.toString())
         }
-        recy = findViewById(R.id.RecyclerViewConsultas)
-        val adapter = ConsultaAdapter(dataset)
-        recy.layoutManager = LinearLayoutManager(this)
-        recy.adapter = adapter
     }
 
     // Função para buscar todas as consultas de um usuário
@@ -44,8 +40,8 @@ class minhasConsultas : AppCompatActivity() {
                         data = document.getString("date")
                     ))
                 }
-                // Configure o adapter e atualize o RecyclerView aqui:
-                recy = findViewById(R.id.RecyclerViewConsultas) // Inicialize recy aqui se ainda não tiver feito
+
+                recy = findViewById(R.id.RecyclerViewConsultas)
                 val adapter = ConsultaAdapter(dataset)
                 recy.layoutManager = LinearLayoutManager(this)
                 recy.adapter = adapter

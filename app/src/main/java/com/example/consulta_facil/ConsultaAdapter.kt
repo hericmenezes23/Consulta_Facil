@@ -8,15 +8,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class ConsultaAdapter(private var list:List<Consulta>):RecyclerView.Adapter<MyViewHolder>() {
+class ConsultaAdapter(private var list:List<Consulta>):RecyclerView.Adapter<ConsultasViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConsultasViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_view_consultas,parent,false)
-        return MyViewHolder(view)
+        return ConsultasViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ConsultasViewHolder, position: Int) {
         val context = holder.item.context
         val consulta = list[position]
         //print list
@@ -39,7 +39,7 @@ class ConsultaAdapter(private var list:List<Consulta>):RecyclerView.Adapter<MyVi
 
 }
 
-class MyViewHolder (var item: View) :RecyclerView.ViewHolder(item){
+class ConsultasViewHolder (var item: View) :RecyclerView.ViewHolder(item){
     var nomeMedico: TextView = item.findViewById(R.id.nomeMedico_consulta)
     var especialidade: TextView = item.findViewById(R.id.especialidade_consulta)
     var dataConsulta: TextView = item.findViewById(R.id.data_consulta)

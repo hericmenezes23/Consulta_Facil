@@ -61,6 +61,7 @@ class DetalhesConsulta : AppCompatActivity() {
 
         buttonCancelarConsulta.setOnClickListener{
             val intent = Intent(this, cancelar_tela::class.java)
+            intent.putExtra("consulta", consulta)
             startActivity(intent)
         }
     }

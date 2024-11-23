@@ -14,7 +14,7 @@ class Menu_medico : AppCompatActivity() {
 
         val btNovaConsulta = findViewById<ImageButton>(R.id.button_nova_consulta)
         btNovaConsulta.setOnClickListener {
-            val intent = Intent(this, Pacientes::class.java)
+            val intent = Intent(this, ListaPacientesMedico::class.java)
             startActivity(intent)
         }
 
