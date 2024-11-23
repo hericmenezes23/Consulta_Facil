@@ -37,6 +37,11 @@ class senha_acesso : AppCompatActivity() {
                 .addOnSuccessListener {
                     doc ->
                     if (doc.get("password") == senha.text.toString()) {
+                        // User found! saving user id in session...
+                        UserSession.userId = idFound.toString()
+                        UserSession.userName = doc.get("user").toString()
+                        UserSession.userCpf = doc.get("cpf").toString()
+
                         if (doc.get("crm") != null) {
                             val intent = Intent(this, Menu_medico::class.java)
                             startActivity(intent)

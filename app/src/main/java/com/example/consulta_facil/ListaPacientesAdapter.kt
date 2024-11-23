@@ -25,9 +25,13 @@ class ListaPacientesAdapter(
         holder.itemView.setOnClickListener {
             if(nextView == "consultas") {
                 val intent = Intent(holder.item.context, ConsultaMedico::class.java)
+                intent.putExtra("id", list[position].id)
+                intent.putExtra("name", list[position].name)
                 holder.item.context.startActivity(intent)
             } else if(nextView == "vacinas") {
                 val intent = Intent(holder.item.context, Emitir_vacinas::class.java)
+                intent.putExtra("id", list[position].id)
+                intent.putExtra("name", list[position].name)
                 holder.item.context.startActivity(intent)
             }
         }

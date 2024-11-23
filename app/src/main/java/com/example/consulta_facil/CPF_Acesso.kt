@@ -16,7 +16,7 @@ class CPF_Acesso : AppCompatActivity() {
         setContentView(R.layout.activity_cpf_acesso)
 
         val fb = Firebase.firestore
-        val botaoAvancar = findViewById<Button>(R.id.cadastrar)
+        val botaoAvancar = findViewById<Button>(R.id.cadastrarConsulta)
         val cpfCampo = findViewById<EditText>(R.id.CPFView)
 
         botaoAvancar.setOnClickListener{
