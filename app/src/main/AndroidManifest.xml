@@ -34,6 +34,9 @@
             android:name=".EmitirExame"
             android:exported="false" />
         <activity
+            android:name=".DetalhesExame"
+            android:exported="true" />
+        <activity
             android:name=".atestado_prescricao"
             android:exported="true" />
         <activity

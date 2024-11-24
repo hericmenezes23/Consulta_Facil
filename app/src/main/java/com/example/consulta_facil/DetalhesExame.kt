@@ -35,10 +35,12 @@ class DetalhesExame : AppCompatActivity() {
         val campoNomeExame = findViewById<TextView>(R.id.nome_exame)
 
         campoNomeMedico.text = exame.nomeMedico
-        campoNomeExame.text = exame.tipoExame
+        campoNomeExame.text = exame.specialty
         campoData.text = exame.data
 
         Log.d("DETALHES_EXAME", exame.id.toString())
+        Log.d("DATA:", exame.data.toString())
+        Log.d("SPECIALTY:", exame.specialty.toString())
 
         fb.collection("usuarios").document(exame.id.toString()).get()
             .addOnSuccessListener { doc ->

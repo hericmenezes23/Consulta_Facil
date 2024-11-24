@@ -23,7 +23,7 @@ class meus_exames : AppCompatActivity() {
 
         var dataset = mutableListOf<Exame>()
         getUserAppointments("4S8sdQreEiVDTp92096L")
-        //print all consultas
+
         dataset.forEach {
             Log.d("EXAMES", it.toString())
         }
@@ -40,7 +40,7 @@ class meus_exames : AppCompatActivity() {
                     dataset.add( Exame(
                         id = document.id,
                         nomeMedico = document.getString("doctorName"),
-                        tipoExame = document.getString("examType"),
+                        specialty = document.getString("specialty"),
                         data = document.getString("date"),
                         hour = document.getString("hour")
                     ))
@@ -48,12 +48,13 @@ class meus_exames : AppCompatActivity() {
 
                 recy = findViewById(R.id.RecyclerViewExames)
                 val adapter = ExameAdapter(dataset)
+                Log.d("EXAME:", adapter.getItemCount().toString())
                 recy.layoutManager = LinearLayoutManager(this)
                 recy.adapter = adapter
                 adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
-                Log.w("EXAMES", "Erro ao buscar consultas: ", exception)
+                Log.w("EXAMES", "Erro ao buscar exames: ", exception)
             }
     }
 }

@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Exame(
     val id: String? = null,
     val nomeMedico: String? = null,
-    val tipoExame: String? = null,
+    val specialty: String? = null,
     val data: String? = null,
     val endereco: String? = null,
     val hour: String? = null

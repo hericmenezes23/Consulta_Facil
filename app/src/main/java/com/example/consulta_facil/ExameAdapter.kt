@@ -21,7 +21,7 @@ class ExameAdapter(private var list:List<Exame>):RecyclerView.Adapter<ExamesView
         //print list
         Log.d("EXAMES", exame.toString())
         holder.nomeMedico.text = exame.nomeMedico
-        holder.tipoExame.text = exame.tipoExame
+        holder.specialty.text = exame.specialty
         holder.dataConsulta.text = exame.data
 
         holder.itemView.setOnClickListener {
@@ -40,6 +40,6 @@ class ExameAdapter(private var list:List<Exame>):RecyclerView.Adapter<ExamesView
 
 class ExamesViewHolder (var item: View) :RecyclerView.ViewHolder(item){
     var nomeMedico: TextView = item.findViewById(R.id.nomeMedico_exame)
-    var tipoExame: TextView = item.findViewById(R.id.tipo_exame)
+    var specialty: TextView = item.findViewById(R.id.tipo_exame)
     var dataConsulta: TextView = item.findViewById(R.id.data_exame)
 }
