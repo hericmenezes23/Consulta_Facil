@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class EmitirAtestadosPrescricoes : AppCompatActivity() {
+class EmitirPrescricoes : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_emitir_atestados_precicoes)
+        setContentView(R.layout.activity_emitir_precicoes)
 
         // Encontrar o botão pelo ID
         val buttonChangeScreen = findViewById<Button>(R.id.ADD_BT)
