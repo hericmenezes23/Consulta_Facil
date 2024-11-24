@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class ConsultaAdapter(private var list:List<Consulta>):RecyclerView.Adapter<ConsultasViewHolder>() {
@@ -40,7 +39,7 @@ class ConsultaAdapter(private var list:List<Consulta>):RecyclerView.Adapter<Cons
 }
 
 class ConsultasViewHolder (var item: View) :RecyclerView.ViewHolder(item){
-    var nomeMedico: TextView = item.findViewById(R.id.nomeMedico_consulta)
-    var especialidade: TextView = item.findViewById(R.id.especialidade_consulta)
-    var dataConsulta: TextView = item.findViewById(R.id.data_consulta)
+    var nomeMedico: TextView = item.findViewById(R.id.nomeMedico_exame)
+    var especialidade: TextView = item.findViewById(R.id.tipo_exame)
+    var dataConsulta: TextView = item.findViewById(R.id.data_exame)
 }
