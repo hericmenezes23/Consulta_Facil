@@ -12,6 +12,10 @@ class Menu_medico : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_medico)
 
+        UserSession.userName = "Otavio"
+        UserSession.userCpf = "12345678910"
+        UserSession.userId = "LUDm9iOzuxQEntWKPtzz"
+
         val btNovaConsulta = findViewById<ImageButton>(R.id.button_nova_consulta)
         btNovaConsulta.setOnClickListener {
             val intent = Intent(this, ListaPacientesMedico::class.java)

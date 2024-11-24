@@ -14,16 +14,16 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class EmitirExame : AppCompatActivity() {
+class MarcarExame : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_emitir_exames_medico)
+        setContentView(R.layout.activity_marcar_exame)
 
         val textName = findViewById<TextView>(R.id.textViewNameExams)
         val campoTipo = findViewById<EditText>(R.id.textInputTypeExam)
-        val campoData = findViewById<EditText>(R.id.textInputDate)
-        val campoHora = findViewById<EditText>(R.id.textInputHour)
+        val campoData = findViewById<EditText>(R.id.textInputDateExam)
+        val campoHora = findViewById<EditText>(R.id.textInputHourExam)
         val btCadstrarConsulta = findViewById<Button>(R.id.cadastrarConsulta)
         val patientName = intent.getStringExtra("name").toString()
         val patientId = intent.getStringExtra("id").toString()
@@ -48,7 +48,7 @@ class EmitirExame : AppCompatActivity() {
             hospitalMap[hospitals[i]] = urls[i]
         }
 
-        val spinner = findViewById<Spinner>(R.id.mySpinner)
+        val spinner = findViewById<Spinner>(R.id.SpinnerHospitalExam)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hospitals)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
@@ -83,14 +83,14 @@ class EmitirExame : AppCompatActivity() {
 
             //save in firebase
             val appointmentsRef = fb.collection("usuarios")
-                .document(patientId).collection("consultas")
+                .document(patientId).collection("exames")
             appointmentsRef.add(map)
                 .addOnSuccessListener { documentReference ->
-                    Toast.makeText(this, "Consulta marcada com sucesso!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Exame marcado com sucesso!", Toast.LENGTH_LONG).show()
                     finish()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Erro ao marcar consulta: $e", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Erro ao marcar exame: $e", Toast.LENGTH_SHORT).show()
                 }
         }
     }

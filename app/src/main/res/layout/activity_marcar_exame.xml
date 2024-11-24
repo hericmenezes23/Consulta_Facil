@@ -28,45 +28,45 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:hint="TIPO DE EXAME"
-        app:layout_constraintBottom_toTopOf="@+id/textInputDate"
+        app:layout_constraintBottom_toTopOf="@+id/textInputDateExam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewNameExams" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputDate"
+        android:id="@+id/textInputDateExam"
         android:layout_width="399dp"
         android:layout_height="69dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:hint="DATA DO EXAME"
-        app:layout_constraintBottom_toTopOf="@+id/textInputHour"
+        app:layout_constraintBottom_toTopOf="@+id/textInputHourExam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputTypeExam" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputHour"
+        android:id="@+id/textInputHourExam"
         android:layout_width="402dp"
         android:layout_height="62dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:hint="HORA DO EXAME"
-        app:layout_constraintBottom_toTopOf="@+id/mySpinner"
+        app:layout_constraintBottom_toTopOf="@+id/SpinnerHospitalExam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.777"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputDate" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputDateExam" />
 
     <Spinner
-        android:id="@+id/mySpinner"
+        android:id="@+id/SpinnerHospitalExam"
         android:layout_width="402dp"
         android:layout_height="62dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/cadastrarConsulta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputHour" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputHourExam" />
 
     <Button
         android:id="@+id/cadastrarConsulta"
@@ -82,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputHour"
+        app:layout_constraintTop_toBottomOf="@+id/textInputHourExam"
         app:rippleColor="#AF0909"
         app:strokeColor="#BC0808" />
 
