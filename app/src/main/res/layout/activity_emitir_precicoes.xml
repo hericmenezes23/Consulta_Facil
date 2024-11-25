@@ -9,12 +9,16 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:scaleX="2"
-        android:scaleY="2"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
         android:text="Paciente"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/ADD_BT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +28,11 @@
         android:id="@+id/ADD_BT"
         android:layout_width="252dp"
         android:layout_height="62dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#3D9E26"
         android:text="Adicionar medicamento"
+        app:layout_constraintBottom_toTopOf="@+id/recycleViewAddMedicamentos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -39,10 +45,25 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btEmitirPrescricao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ADD_BT">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btEmitirPrescricao"
+        android:layout_width="252dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="31dp"
+        android:backgroundTint="#3D9E26"
+        android:text="Emitir prescrição"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ADD_BT" />
+        app:layout_constraintTop_toBottomOf="@+id/recycleViewAddMedicamentos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

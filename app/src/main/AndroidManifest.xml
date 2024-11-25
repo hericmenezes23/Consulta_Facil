@@ -95,6 +95,10 @@
         <activity
             android:name=".Emitir_vacinas"
             android:exported="true" />
+        <activity
+            android:name=".Adicionar_medicamento"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

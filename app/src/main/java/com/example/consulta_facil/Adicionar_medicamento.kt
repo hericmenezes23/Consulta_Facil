@@ -1,6 +1,8 @@
 package com.example.consulta_facil
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,22 @@ class Adicionar_medicamento : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_adicionar_medicamento)
 
-        var nomeMedic = findViewById<EditText>(R.id.nomeInput)
+        val nomeMedic = findViewById<EditText>(R.id.textInputNomeMedic)
+        val periodicidadeMedic = findViewById<EditText>(R.id.textInputPeriodicidadeMedic)
+        val diasMedic = findViewById<EditText>(R.id.textInputDiasMedic)
+        val btAddMedic = findViewById<Button>(R.id.btAddMedic)
+
+
+        btAddMedic.setOnClickListener {
+            val nomeMedicamento = nomeMedic.text.toString()
+            val periodicidade = periodicidadeMedic.text.toString()
+            val dias = diasMedic.text.toString()
+            val medicamento = Medicamento(nomeMedicamento, periodicidade, dias)
+
+            val intent = Intent()
+            intent.putExtra("medicamento", medicamento)
+            setResult(RESULT_OK, intent)
+            finish()
+        }
     }
 }
