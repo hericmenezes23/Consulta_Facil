@@ -26,7 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".Minhas_cirurgias"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".buscador_ia"
             android:exported="true" />

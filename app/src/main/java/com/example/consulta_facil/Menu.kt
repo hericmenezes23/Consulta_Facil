@@ -26,6 +26,12 @@ class Menu : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val bt_cirurgias = findViewById<ImageButton>(R.id.button_minhas_cirurgias)
+        bt_cirurgias.setOnClickListener {
+            val intent = Intent(this, Minhas_cirurgias::class.java)
+            startActivity(intent)
+        }
+
         val bt_upas_proximas = findViewById<ImageButton>(R.id.button_upas_proximas)
         bt_upas_proximas.setOnClickListener {
             val intent = Intent(this, upas_proximas::class.java)
