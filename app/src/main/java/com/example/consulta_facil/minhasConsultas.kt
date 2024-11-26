@@ -42,7 +42,7 @@ class minhasConsultas : AppCompatActivity() {
                     ))
                 }
 
-                recy = findViewById(R.id.RecyclerViewConsultas)
+                recy = findViewById(R.id.RecyclerViewCirurgias)
                 val adapter = ConsultaAdapter(dataset)
                 recy.layoutManager = LinearLayoutManager(this)
                 recy.adapter = adapter

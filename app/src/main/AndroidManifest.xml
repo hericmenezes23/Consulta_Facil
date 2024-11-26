@@ -26,6 +26,9 @@
             android:exported="false" />
         <activity
             android:name=".Minhas_cirurgias"
+            android:exported="true" />
+        <activity
+            android:name=".DetalhesCirurgia"
             android:exported="false" />
         <activity
             android:name=".buscador_ia"
