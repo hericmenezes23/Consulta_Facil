@@ -37,8 +37,6 @@ class minhasConsultas : AppCompatActivity() {
 
         var dataset = mutableListOf<Consulta>()
         getUserAppointments("4S8sdQreEiVDTp92096L")
-        //print all consultas
-        //print all consultas
         dataset.forEach {
             Log.d("CONSULTAS", it.toString())
         }
@@ -60,7 +58,7 @@ class minhasConsultas : AppCompatActivity() {
                     ))
                 }
 
-                recy = findViewById(R.id.RecyclerViewCirurgias)
+                recy = findViewById(R.id.RecyclerViewConsultas)
                 val adapter = ConsultaAdapter(dataset)
                 recy.layoutManager = LinearLayoutManager(this)
                 recy.adapter = adapter

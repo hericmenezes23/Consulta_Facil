@@ -22,7 +22,7 @@ class CirurgiaAdapter(private var list:List<Cirurgia>):RecyclerView.Adapter<Ciru
         Log.d("EXAMES", cirurgia.toString())
         holder.nomeMedico.text = cirurgia.nomeMedico
         holder.specialty.text = cirurgia.specialty
-        holder.dataConsulta.text = cirurgia.data
+        holder.dataCirurgia.text = cirurgia.data
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetalhesCirurgia::class.java)
@@ -41,5 +41,5 @@ class CirurgiaAdapter(private var list:List<Cirurgia>):RecyclerView.Adapter<Ciru
 class CirurgiasViewHolder (var item: View) :RecyclerView.ViewHolder(item){
     var nomeMedico: TextView = item.findViewById(R.id.nomeMedico_cirurgia)
     var specialty: TextView = item.findViewById(R.id.tipo_cirurgia)
-    var dataConsulta: TextView = item.findViewById(R.id.data_cirurgia)
+    var dataCirurgia: TextView = item.findViewById(R.id.data_cirurgia)
 }

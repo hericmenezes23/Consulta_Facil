@@ -60,5 +60,11 @@ class Menu : AppCompatActivity() {
             val intent = Intent(this, PacientesVacinas::class.java)
             startActivity(intent)
         }
+
+        val bt_atestados = findViewById<ImageButton>(R.id.button_atestados_prescricoes)
+        bt_atestados.setOnClickListener {
+            val intent = Intent(this, meus_atestados::class.java)
+            startActivity(intent)
+        }
     }
 }

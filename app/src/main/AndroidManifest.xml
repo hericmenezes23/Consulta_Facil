@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Consulta_Facil"
         tools:targetApi="31">
         <activity
+            android:name=".DetalhesAtestado"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
@@ -86,7 +89,7 @@
             android:exported="true" />
         <activity
             android:name=".CPF_Acesso"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Menu_medico"
             android:exported="true" />

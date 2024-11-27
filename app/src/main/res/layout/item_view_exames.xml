@@ -25,14 +25,14 @@
         app:layout_constraintTop_toTopOf="@+id/iconImageView">
 
         <TextView
-            android:id="@+id/nomeMedico_cirurgia"
+            android:id="@+id/nomeMedico_consulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tipo_cirurgia"
+            android:id="@+id/tipo_consulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp" />

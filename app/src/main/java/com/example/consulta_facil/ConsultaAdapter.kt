@@ -39,7 +39,7 @@ class ConsultaAdapter(private var list:List<Consulta>):RecyclerView.Adapter<Cons
 }
 
 class ConsultasViewHolder (var item: View) :RecyclerView.ViewHolder(item){
-    var nomeMedico: TextView = item.findViewById(R.id.nomeMedico_cirurgia)
-    var especialidade: TextView = item.findViewById(R.id.tipo_cirurgia)
-    var dataConsulta: TextView = item.findViewById(R.id.data_cirurgia)
+    var nomeMedico: TextView = item.findViewById(R.id.nomeMedico_consulta)
+    var especialidade: TextView = item.findViewById(R.id.tipo_consulta)
+    var dataConsulta: TextView = item.findViewById(R.id.data_consulta)
 }
