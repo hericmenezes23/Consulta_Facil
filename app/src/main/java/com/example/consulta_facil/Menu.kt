@@ -5,14 +5,31 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 import android.content.Intent
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 
 
 class Menu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        lateinit var searchBar: EditText
+        lateinit var btnSearch: Button
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu)
+
+        searchBar = findViewById(R.id.search_bar)
+        btnSearch = findViewById(R.id.btn_search)
+
+        btnSearch.setOnClickListener {
+            val inputText = searchBar.text.toString()
+            if (inputText.isNotEmpty()) {
+                // Criar intent para navegar para a tela do chatbot
+                val intent = Intent(this, BuscadorIAActivity::class.java)
+                intent.putExtra("search_query", inputText)
+                startActivity(intent)
+            }
+        }
 
         val bt_consultas = findViewById<ImageButton>(R.id.button_minhas_consultas)
         bt_consultas.setOnClickListener {

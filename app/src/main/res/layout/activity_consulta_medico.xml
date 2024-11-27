@@ -145,28 +145,11 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp">
 
-            <!-- Campo de busca -->
-            <LinearLayout
+            <include
+                layout="@layout/layout_search_bar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content" />
 
-                <EditText
-                    android:id="@+id/search_bar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Digite o nome da especialidade"
-                    android:padding="8dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:inputType="text" />
-
-                <Button
-                    android:id="@+id/btn_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Buscar" />
-            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
     </androidx.appcompat.widget.Toolbar>

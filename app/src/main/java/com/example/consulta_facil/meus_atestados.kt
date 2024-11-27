@@ -3,6 +3,7 @@ package com.example.consulta_facil
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -11,31 +12,24 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class meus_atestados : AppCompatActivity() {
+    lateinit var searchBar: EditText
+    lateinit var btnSearch: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_minhas_consultas)
+        setContentView(R.layout.activity_meus_atestados)
 
-        val Consulta1 = findViewById<ImageButton>(R.id.imageView2)
-        val Consulta2 = findViewById<ImageButton>(R.id.imageView3)
-        val Consulta3 = findViewById<ImageButton>(R.id.imageView4)
-        val Consulta4 = findViewById<ImageButton>(R.id.imageView5)
+        searchBar = findViewById(R.id.search_bar)
+        btnSearch = findViewById(R.id.btn_search)
 
-        Consulta1.setOnClickListener{
-            val intent = Intent(this, atestado_prescricao::class.java)
-            startActivity(intent)
-        }
-        Consulta2.setOnClickListener{
-            val intent = Intent(this, atestado_prescricao::class.java)
-            startActivity(intent)
-        }
-        Consulta3.setOnClickListener{
-            val intent = Intent(this, atestado_prescricao::class.java)
-            startActivity(intent)
-        }
-        Consulta4.setOnClickListener{
-            val intent = Intent(this, atestado_prescricao::class.java)
-            startActivity(intent)
+        btnSearch.setOnClickListener {
+            val inputText = searchBar.text.toString()
+            if (inputText.isNotEmpty()) {
+                // Criar intent para navegar para a tela do chatbot
+                val intent = Intent(this, BuscadorIAActivity::class.java)
+                intent.putExtra("search_query", inputText)
+                startActivity(intent)
+            }
         }
     }
 }

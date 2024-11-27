@@ -19,6 +19,9 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
+            android:name=".meus_atestados"
+            android:exported="true" />
+        <activity
             android:name=".NovaSenhaAcesso"
             android:exported="true" />
         <activity

@@ -1,7 +1,10 @@
 package com.example.consulta_facil
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,12 +13,27 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class minhasConsultas : AppCompatActivity() {
+    lateinit var searchBar: EditText
+    lateinit var btnSearch: Button
     lateinit var recy: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_minhas_consultas)
+
+        searchBar = findViewById(R.id.search_bar)
+        btnSearch = findViewById(R.id.btn_search)
+
+        btnSearch.setOnClickListener {
+            val inputText = searchBar.text.toString()
+            if (inputText.isNotEmpty()) {
+                // Criar intent para navegar para a tela do chatbot
+                val intent = Intent(this, BuscadorIAActivity::class.java)
+                intent.putExtra("search_query", inputText)
+                startActivity(intent)
+            }
+        }
 
         var dataset = mutableListOf<Consulta>()
         getUserAppointments("4S8sdQreEiVDTp92096L")

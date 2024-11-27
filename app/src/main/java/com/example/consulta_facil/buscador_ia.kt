@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.ai.client.generativeai.GenerativeModel
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 
 class BuscadorIAActivity : AppCompatActivity() {
     private lateinit var etInput: EditText
@@ -27,12 +30,25 @@ class BuscadorIAActivity : AppCompatActivity() {
         rvChat.layoutManager = LinearLayoutManager(this)
         rvChat.adapter = chatAdapter
 
+        val searchQuery = intent.getStringExtra("search_query")
+        if (!searchQuery.isNullOrEmpty()) {
+            addMessage(searchQuery, isUser = true)
+            // Use uma coroutine para chamar a função suspensa
+            lifecycleScope.launch {
+                fetchChatbotResponse(searchQuery)
+            }
+        }
+
+
         btnSend.setOnClickListener {
             val userMessage = etInput.text.toString()
             if (userMessage.isNotEmpty()) {
                 addMessage(userMessage, isUser = true)
-                fetchChatbotResponse(userMessage)
                 etInput.text.clear()
+                // Fazer a chamada ao modelo Gemini
+                lifecycleScope.launch {
+                    fetchChatbotResponse(userMessage)
+                }
             }
         }
     }
@@ -43,9 +59,17 @@ class BuscadorIAActivity : AppCompatActivity() {
         rvChat.scrollToPosition(chatMessages.size - 1)
     }
 
-    private fun fetchChatbotResponse(userMessage: String) {
-        // Substituir com chamada real ao modelo Gemini
-        val fakeResponse = "Aqui está uma resposta simulada para: $userMessage"
-        addMessage(fakeResponse, isUser = false)
+    private suspend fun fetchChatbotResponse(userMessage: String) {
+        try {
+            val generativeModel = GenerativeModel(
+                modelName = "gemini-1.5-flash",
+                apiKey = "AIzaSyBJD4ROJopgoZUpduCGCh0MNsLUrC0rKu4" // Substitua com a sua chave de API
+            )
+
+            val response = generativeModel.generateContent(userMessage)
+            addMessage(response.text.toString(), isUser = false)
+        } catch (e: Exception) {
+            addMessage("Erro ao obter resposta: ${e.message}", isUser = false)
+        }
     }
 }

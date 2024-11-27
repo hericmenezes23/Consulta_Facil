@@ -5,6 +5,7 @@ import android.widget.Button
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -14,9 +15,24 @@ import com.google.firebase.ktx.Firebase
 
 class DetalhesCirurgia : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        lateinit var searchBar: EditText
+        lateinit var btnSearch: Button
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detalhes_cirurgia)
+
+        searchBar = findViewById(R.id.search_bar)
+        btnSearch = findViewById(R.id.btn_search)
+
+        btnSearch.setOnClickListener {
+            val inputText = searchBar.text.toString()
+            if (inputText.isNotEmpty()) {
+                // Criar intent para navegar para a tela do chatbot
+                val intent = Intent(this, BuscadorIAActivity::class.java)
+                intent.putExtra("search_query", inputText)
+                startActivity(intent)
+            }
+        }
 
         val fb = Firebase.firestore
         val cirurgia = intent.getParcelableExtra<Cirurgia>("cirurgia")
