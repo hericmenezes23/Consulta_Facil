@@ -11,8 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -29,29 +27,12 @@ class EmitirConsultas : AppCompatActivity() {
         val btCadstrarConsulta = findViewById<Button>(R.id.cadastrarConsulta)
         val patientName = intent.getStringExtra("name").toString()
         val patientId = intent.getStringExtra("id").toString()
-        var fb = Firebase.firestore
+        val fb = Firebase.firestore
 
         textName.text = patientName
 
-        val hospitals = arrayOf(
-            "Hospital Jose Inacio",
-            "Hospital Sao Joao",
-            "Hospital Sao Francisco"
-        )
-        // URLs for each hospital
-        val urls = arrayOf(
-            "https://www.hospitaljoseinacio.com.br",
-            "https://www.hospitalsaojoao.com.br",
-            "https://www.hospitalsaofrancisco.com.br"
-        )
-        // Create a map to store the hospital names and URLs
-        val hospitalMap = mutableMapOf<String, String>()
-        for (i in hospitals.indices) {
-            hospitalMap[hospitals[i]] = urls[i]
-        }
-
         val spinner = findViewById<Spinner>(R.id.SpinnerHospitalConsult)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hospitals)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, SpinnerHospitalData.hospitalNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
@@ -78,7 +59,7 @@ class EmitirConsultas : AppCompatActivity() {
                 "date" to campoData.text.toString(),
                 "hour" to campoHora.text.toString(),
                 "hospital" to spinner.selectedItem.toString(),
-                "address_url" to hospitalMap[spinner.selectedItem.toString()]
+                "address_url" to SpinnerHospitalData.hospitalMap[spinner.selectedItem.toString()]
             )
 
             //save in firebase

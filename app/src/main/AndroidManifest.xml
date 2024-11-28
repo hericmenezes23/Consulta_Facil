@@ -77,15 +77,15 @@
             android:exported="true" />
         <activity
             android:name=".CPF_Acesso"
-            android:exported="true"></activity>
-        <activity
-            android:name=".Menu_medico"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Menu_medico"
+            android:exported="true">
         </activity>
         <activity
             android:name=".ListaPacientesMedico"

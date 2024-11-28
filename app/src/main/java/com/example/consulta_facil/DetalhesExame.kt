@@ -21,7 +21,6 @@ class DetalhesExame : AppCompatActivity() {
 
         val fb = Firebase.firestore
         val exame = intent.getParcelableExtra<Exame>("exame")
-        var nomeExame = ""
 
         if (exame == null) {
             Toast.makeText(this, "Exame não encontrado", Toast.LENGTH_SHORT).show()

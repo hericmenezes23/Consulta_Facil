@@ -41,7 +41,6 @@ class MarcarCirurgia : AppCompatActivity() {
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val selectedItem = SpinnerHospitalData.hospitalNames[position]
                 // Now you can use selectedItem, which holds the selected hospital name
             }
 
@@ -71,7 +70,7 @@ class MarcarCirurgia : AppCompatActivity() {
             //save in firebase
             val appointmentsRef = fb.collection("usuarios")
                 .document(patientId).collection("cirurgias")
-            val res = appointmentsRef.add(map)
+            appointmentsRef.add(map)
                 .addOnSuccessListener { documentReference ->
                     Toast.makeText(this, "Cirurgia marcada com sucesso!", Toast.LENGTH_LONG).show()
                     finish()

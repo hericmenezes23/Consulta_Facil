@@ -33,11 +33,6 @@ class ListaPacientesAdapter(
                 intent.putExtra("id", list[position].id)
                 intent.putExtra("name", list[position].name)
                 holder.item.context.startActivity(intent)
-            } else if(nextView == "exames") {
-                val intent = Intent(holder.item.context, MarcarExame::class.java)
-                intent.putExtra("id", list[position].id)
-                intent.putExtra("name", list[position].name)
-                holder.item.context.startActivity(intent)
             }
         }
     }
