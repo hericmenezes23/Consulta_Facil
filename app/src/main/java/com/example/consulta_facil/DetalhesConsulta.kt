@@ -60,7 +60,7 @@ class DetalhesConsulta : AppCompatActivity() {
         fb.collection("usuarios").document(consulta.id.toString()).get()
             .addOnSuccessListener { doc ->
                 if (doc != null && doc.exists()) {
-                    endereco = doc.getString("address").toString()
+                    val endereco = doc.getString("address").toString()
                     Log.d("DETALHES_CONSULTA", endereco)
                     campoEndereco.text = endereco
                 }

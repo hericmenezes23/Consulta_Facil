@@ -61,7 +61,7 @@ class DetalhesExame : AppCompatActivity() {
         fb.collection("usuarios").document(exame.id.toString()).get()
             .addOnSuccessListener { doc ->
                 if (doc != null && doc.exists()) {
-                    nomeExame = doc.getString("examType").toString()
+                    val nomeExame = doc.getString("examType").toString()
                     Log.d("DETALHES_EXAME", nomeExame)
                     campoNomeExame.text = nomeExame
                 }

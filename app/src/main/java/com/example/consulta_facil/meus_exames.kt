@@ -38,12 +38,7 @@ class meus_exames : AppCompatActivity() {
             }
         }
 
-        var dataset = mutableListOf<Exame>()
-        getUserAppointments("4S8sdQreEiVDTp92096L")
-
-        dataset.forEach {
-            Log.d("EXAMES", it.toString())
-        }
+        getUserAppointments(UserSession.userId.toString())
     }
 
     // Função para buscar todas as consultas de um usuário

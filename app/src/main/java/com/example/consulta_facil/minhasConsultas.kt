@@ -35,11 +35,7 @@ class minhasConsultas : AppCompatActivity() {
             }
         }
 
-        var dataset = mutableListOf<Consulta>()
-        getUserAppointments("4S8sdQreEiVDTp92096L")
-        dataset.forEach {
-            Log.d("CONSULTAS", it.toString())
-        }
+        getUserAppointments(UserSession.userId.toString())
     }
 
     // Função para buscar todas as consultas de um usuário

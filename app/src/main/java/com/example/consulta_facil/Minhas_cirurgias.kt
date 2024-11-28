@@ -35,11 +35,7 @@ class Minhas_cirurgias : AppCompatActivity() {
             }
         }
 
-        var dataset = mutableListOf<Cirurgia>()
-        getUserAppointments("4S8sdQreEiVDTp92096L")
-        dataset.forEach {
-            Log.d("CIRURGIAS", it.toString())
-        }
+        getUserAppointments(UserSession.userId.toString())
     }
 
     private fun getUserAppointments(userId: String) {
