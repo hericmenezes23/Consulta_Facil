@@ -14,6 +14,8 @@ class ConsultaMedico : AppCompatActivity() {
         val Cirurgia = findViewById<ImageButton>(R.id.button_marcar_cirurgia)
         val Atestado = findViewById<ImageButton>(R.id.button_emitir_atestados)
         val Prescricao = findViewById<ImageButton>(R.id.button_emitir_prescricoes)
+        val Consultas = findViewById<ImageButton>(R.id.button_emitir_consultas)
+
         val idPaciente = intent.getStringExtra("id").toString()
         val nomePaciente = intent.getStringExtra("name").toString()
 
@@ -30,13 +32,19 @@ class ConsultaMedico : AppCompatActivity() {
             startActivity(intent)
         }
         Atestado.setOnClickListener{
-            val intent = Intent(this, atestado_prescricao::class.java)
+            val intent = Intent(this, EmitirAtestado::class.java)
             intent.putExtra("id", idPaciente)
             intent.putExtra("name", nomePaciente)
             startActivity(intent)
         }
         Prescricao.setOnClickListener{
             val intent = Intent(this, EmitirPrescricoes::class.java)
+            intent.putExtra("id", idPaciente)
+            intent.putExtra("name", nomePaciente)
+            startActivity(intent)
+        }
+        Consultas.setOnClickListener{
+            val intent = Intent(this, EmitirConsultas::class.java)
             intent.putExtra("id", idPaciente)
             intent.putExtra("name", nomePaciente)
             startActivity(intent)

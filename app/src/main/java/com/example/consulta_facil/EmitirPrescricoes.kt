@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -20,6 +21,7 @@ class EmitirPrescricoes : AppCompatActivity() {
 
         val btAddMedic = findViewById<Button>(R.id.ADD_BT)
 
+        medicamentosList.add(Medicamento("Medicamento 1", "2 dias", "1 vez ao dia"))
         val recyclerView = findViewById<RecyclerView>(R.id.recycleViewAddMedicamentos)
         recyclerView.layoutManager = LinearLayoutManager(this) // Or another layout manager
         recyclerView.adapter = AddMedicamentosAdapter(medicamentosList)
@@ -29,11 +31,13 @@ class EmitirPrescricoes : AppCompatActivity() {
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
+                Log.d("AddMedicamento", "Result OK")
                 val data: Intent? = result.data
                 val novoMedicamento = data?.getParcelableExtra<Medicamento>("medicamento")
                 novoMedicamento?.let {
-                    medicamentosList.add(it)
-                    recyclerView.adapter?.notifyDataSetChanged()
+                    Log.d("AddMedicamento", "Novo medicamento: $it")
+                    val adapter = recyclerView.adapter as AddMedicamentosAdapter
+                    adapter.updateData(it)
                 }
             }
         }
@@ -43,19 +47,4 @@ class EmitirPrescricoes : AppCompatActivity() {
             addMedicamentoLauncher.launch(intent)
         }
     }
-
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (requestCode == REQUEST_CODE_ADD_MEDICAMENTO && resultCode == Activity.RESULT_OK) {
-//            val novoMedicamento = data?.getStringExtra("nome_medicamento")
-//            novoMedicamento?.let {
-//                medicamentosList.add(it)
-//                addMedicamentosAdapter.notifyDataSetChanged()
-//            }
-//        }
-//    }
-
-//    companion object {
-//        private const val REQUEST_CODE_ADD_MEDICAMENTO = 1
-//    }
 }

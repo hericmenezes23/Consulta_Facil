@@ -24,7 +24,7 @@ class MarcarExame : AppCompatActivity() {
         val campoTipo = findViewById<EditText>(R.id.textInputTypeExam)
         val campoData = findViewById<EditText>(R.id.textInputDateExam)
         val campoHora = findViewById<EditText>(R.id.textInputHourExam)
-        val btCadstrarConsulta = findViewById<Button>(R.id.cadastrarConsulta)
+        val btCadstrarConsulta = findViewById<Button>(R.id.cadastrarExame)
         val patientName = intent.getStringExtra("name").toString()
         val patientId = intent.getStringExtra("id").toString()
         var fb = Firebase.firestore
