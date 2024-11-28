@@ -18,7 +18,6 @@ class ListaPacientesMedico : AppCompatActivity() {
         setContentView(R.layout.activity_lista_pacientes)
 
         val next_view = intent.getStringExtra("next_view") ?: ""
-        val dataset = mutableListOf<Consulta>()
         getUsers(next_view)
     }
 

@@ -21,7 +21,7 @@ class CPF_Acesso : AppCompatActivity() {
 
         botaoAvancar.setOnClickListener{
             if(cpfCampo.text.toString().trim().length != 11) {
-                Toast.makeText(this, "Digite um CPF válido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Digite um CPF válido", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             Toast.makeText(this, "Checando CPF...", Toast.LENGTH_SHORT).show()
@@ -43,7 +43,7 @@ class CPF_Acesso : AppCompatActivity() {
                     var idFound = ""
                     for (doc in docs){
                         if(doc.get("cpf")==cpfCampo.text.toString()){
-                            idFound = doc.id.toString()
+                            idFound = doc.id
                             break
                         }
                     }
@@ -68,6 +68,3 @@ class CPF_Acesso : AppCompatActivity() {
     }
 }
 
-private fun Intent.putExtra(s: String, data: Map<String, Any>) {
-
-}

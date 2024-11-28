@@ -27,7 +27,7 @@ class MarcarExame : AppCompatActivity() {
         val btCadstrarConsulta = findViewById<Button>(R.id.cadastrarExame)
         val patientName = intent.getStringExtra("name").toString()
         val patientId = intent.getStringExtra("id").toString()
-        var fb = Firebase.firestore
+        val fb = Firebase.firestore
 
         textName.text = patientName
 
@@ -41,7 +41,7 @@ class MarcarExame : AppCompatActivity() {
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val selectedItem = SpinnerHospitalData.hospitalNames[position]
+                // val selectedItem = SpinnerHospitalData.hospitalNames[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {

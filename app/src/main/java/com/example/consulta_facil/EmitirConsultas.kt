@@ -11,8 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -29,7 +27,7 @@ class EmitirConsultas : AppCompatActivity() {
         val btCadstrarConsulta = findViewById<Button>(R.id.cadastrarConsulta)
         val patientName = intent.getStringExtra("name").toString()
         val patientId = intent.getStringExtra("id").toString()
-        var fb = Firebase.firestore
+        val fb = Firebase.firestore
 
         textName.text = patientName
 
