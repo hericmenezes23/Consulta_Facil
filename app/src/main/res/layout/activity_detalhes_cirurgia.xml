@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/exame_tela"
+    android:id="@+id/consulta_tela"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -34,14 +34,14 @@
             android:paddingStart="16dp">
 
             <TextView
-                android:id="@+id/text_nome_medico"
+                android:id="@+id/cirurgia_medico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dr. José Marcelino"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/text_especialidade_medico"
+                android:id="@+id/cirurgia_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -50,11 +50,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/text_data"
+                android:id="@+id/cirurgia_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="22/09/2023"
+                android:text="11/11/2024"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
@@ -67,11 +67,11 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/image_view"
+            android:id="@+id/image_view_endereço"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:contentDescription="Imagem do médico"
-            android:src="@drawable/exame" />
+            android:src="@drawable/local" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -81,18 +81,18 @@
             android:paddingStart="16dp">
 
             <TextView
-                android:id="@+id/text_nome"
+                android:id="@+id/main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de Exame:"
+                android:text="Endereço"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/nome_exame"
+                android:id="@+id/cirurgia_endereço"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Exame de Sangue"
+                android:text=" "
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -100,14 +100,5 @@
     </LinearLayout>
 
     <!-- Botões -->
-
-    <Button
-        android:id="@+id/button_resultado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:padding="16dp"
-        android:text="RESULTADO DO EXAME"
-        android:textColor="@android:color/white" />
 
 </LinearLayout>

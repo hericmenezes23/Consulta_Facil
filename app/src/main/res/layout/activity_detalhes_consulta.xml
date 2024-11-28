@@ -5,35 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="0dp">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/top_toolbar"
+    <include
+        layout="@layout/layout_search_bar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="@android:color/black"
-        android:padding="0dp">
+        android:layout_height="wrap_content" />
 
-        <!-- CardView para o campo de busca com cantos arredondados -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:backgroundTint="@android:color/white">
-
-            <!-- Campo de busca -->
-            <EditText
-                android:id="@+id/search_field"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:hint="Digite o nome da especialidade"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
-
-        </androidx.cardview.widget.CardView>
-    </androidx.appcompat.widget.Toolbar>
 
     <!-- Topo do Layout com Imagem e Texto -->
     <LinearLayout
@@ -58,14 +34,14 @@
             android:paddingStart="16dp">
 
             <TextView
-                android:id="@+id/det_consulta_nome_medico"
+                android:id="@+id/cirurgia_medico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dr. José Marcelino"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/det_consulta_especialidade"
+                android:id="@+id/cirurgia_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -74,7 +50,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/det_consulta_data"
+                android:id="@+id/cirurgia_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -112,7 +88,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/det_consulta_endereço"
+                android:id="@+id/cirurgia_endereço"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"

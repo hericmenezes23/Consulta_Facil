@@ -42,7 +42,8 @@ class senha_acesso : AppCompatActivity() {
                         UserSession.userName = doc.get("user").toString()
                         UserSession.userCpf = doc.get("cpf").toString()
 
-                        if (doc.get("crm") != null) {
+                        if (doc.get("crm") != null && doc.get("crm") != "") {
+                            Toast.makeText(this, "crm: " + doc.get("crm").toString(), Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, Menu_medico::class.java)
                             startActivity(intent)
                         } else {

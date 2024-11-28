@@ -13,13 +13,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class DetalhesConsulta : AppCompatActivity() {
+class DetalhesCirurgia : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var searchBar: EditText
         lateinit var btnSearch: Button
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_detalhes_consulta)
+        setContentView(R.layout.activity_detalhes_cirurgia)
 
         searchBar = findViewById(R.id.search_bar)
         btnSearch = findViewById(R.id.btn_search)
@@ -34,38 +34,38 @@ class DetalhesConsulta : AppCompatActivity() {
             }
         }
 
-        val buttonCancelarConsulta = findViewById<Button>(R.id.button_cancelar)
-
         val fb = Firebase.firestore
-        val consulta = intent.getParcelableExtra<Consulta>("consulta")
+        val cirurgia = intent.getParcelableExtra<Cirurgia>("cirurgia")
+        var nomeCirurgia = ""
 
-        if (consulta == null) {
-            Toast.makeText(this, "Consulta não encontrada", Toast.LENGTH_SHORT).show()
+        if (cirurgia == null) {
+            Toast.makeText(this, "Cirurgia não encontrada", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
         //alterar nomes de campos
         val campoNomeMedico = findViewById<TextView>(R.id.cirurgia_medico)
-        val campoEspecialidade = findViewById<TextView>(R.id.cirurgia_nome)
         val campoData = findViewById<TextView>(R.id.cirurgia_data)
-        val campoEndereco = findViewById<TextView>(R.id.cirurgia_endereço)
+        val campoNomeCirurgia = findViewById<TextView>(R.id.cirurgia_nome)
 
-        campoNomeMedico.text = consulta.nomeMedico
-        campoEspecialidade.text = consulta.especialidade
-        campoData.text = consulta.data
+        campoNomeMedico.text = cirurgia.nomeMedico
+        campoNomeCirurgia.text = cirurgia.specialty
+        campoData.text = cirurgia.data
 
-        Log.d("DETALHES_CONSULTA", consulta.id.toString())
+        Log.d("DETALHES_EXAME", cirurgia.id.toString())
+        Log.d("DATA:", cirurgia.data.toString())
+        Log.d("SPECIALTY:", cirurgia.specialty.toString())
 
-        fb.collection("usuarios").document(consulta.id.toString()).get()
+        fb.collection("usuarios").document(cirurgia.id.toString()).get()
             .addOnSuccessListener { doc ->
                 if (doc != null && doc.exists()) {
-                    val endereco = doc.getString("address").toString()
-                    Log.d("DETALHES_CONSULTA", endereco)
-                    campoEndereco.text = endereco
+                    nomeCirurgia = doc.getString("examType").toString()
+                    Log.d("DETALHES_CIRURGIA", nomeCirurgia)
+                    campoNomeCirurgia.text = nomeCirurgia
                 }
                 else {
-                    Log.d("DETALHES_CONSULTA", "No such document")
+                    Log.d("DETALHES_CIRURGIA", "No such document")
                 }
             }.addOnFailureListener { exception ->
                 Toast.makeText(this, "erro", Toast.LENGTH_SHORT).show()
@@ -75,10 +75,5 @@ class DetalhesConsulta : AppCompatActivity() {
                 println(exception.cause)
             }
 
-        buttonCancelarConsulta.setOnClickListener{
-            val intent = Intent(this, cancelar_tela::class.java)
-            intent.putExtra("consulta", consulta)
-            startActivity(intent)
-        }
     }
 }

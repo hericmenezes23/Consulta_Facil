@@ -201,18 +201,11 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp">
 
-            <!-- Campo de busca -->
-            <EditText
-                android:id="@+id/search_field"
+            <include
+                layout="@layout/layout_search_bar"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:hint="Digite o nome da especialidade"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:layout_height="wrap_content" />
+
 
         </androidx.cardview.widget.CardView>
     </androidx.appcompat.widget.Toolbar>

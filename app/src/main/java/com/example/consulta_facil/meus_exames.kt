@@ -3,6 +3,8 @@ package com.example.consulta_facil
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,18 +17,28 @@ import com.google.firebase.ktx.Firebase
 
 class meus_exames : AppCompatActivity() {
     lateinit var recy: RecyclerView
+    lateinit var searchBar: EditText
+    lateinit var btnSearch: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_meus_exames)
 
-        var dataset = mutableListOf<Exame>()
-        getUserAppointments("4S8sdQreEiVDTp92096L")
+        searchBar = findViewById(R.id.search_bar)
+        btnSearch = findViewById(R.id.btn_search)
 
-        dataset.forEach {
-            Log.d("EXAMES", it.toString())
+        btnSearch.setOnClickListener {
+            val inputText = searchBar.text.toString()
+            if (inputText.isNotEmpty()) {
+                // Criar intent para navegar para a tela do chatbot
+                val intent = Intent(this, BuscadorIAActivity::class.java)
+                intent.putExtra("search_query", inputText)
+                startActivity(intent)
+            }
         }
+
+        getUserAppointments(UserSession.userId.toString())
     }
 
     // Função para buscar todas as consultas de um usuário

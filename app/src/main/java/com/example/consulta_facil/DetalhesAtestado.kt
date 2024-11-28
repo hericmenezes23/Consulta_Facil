@@ -1,25 +1,26 @@
 package com.example.consulta_facil
 
 import android.content.Intent
-import android.widget.Button
-
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class DetalhesExame : AppCompatActivity() {
+class DetalhesAtestado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var searchBar: EditText
         lateinit var btnSearch: Button
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_detalhes_exame)
+        setContentView(R.layout.activity_detalhes_atestado)
 
         searchBar = findViewById(R.id.search_bar)
         btnSearch = findViewById(R.id.btn_search)
@@ -34,39 +35,46 @@ class DetalhesExame : AppCompatActivity() {
             }
         }
 
-        val buttonEmitirResultado = findViewById<Button>(R.id.button_resultado)
+        val buttonEmitirResultado = findViewById<Button>(R.id.button_imprimir)
 
         val fb = Firebase.firestore
-        val exame = intent.getParcelableExtra<Exame>("exame")
+        val atestado = intent.getParcelableExtra<Atestado>("atestado")
+        var nomeAtestado = ""
 
-        if (exame == null) {
-            Toast.makeText(this, "Exame não encontrado", Toast.LENGTH_SHORT).show()
+        if (atestado == null) {
+            Toast.makeText(this, "Atestado não encontrado", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
         //alterar nomes de campos
-        val campoNomeMedico = findViewById<TextView>(R.id.text_nome_medico)
-        val campoData = findViewById<TextView>(R.id.text_data)
-        val campoNomeExame = findViewById<TextView>(R.id.nome_exame)
+        val campoNomeMedico = findViewById<TextView>(R.id.text_nome_medico_at)
+        val campoData = findViewById<TextView>(R.id.text_data_at)
+        val campoNomeAtestado = findViewById<TextView>(R.id.nome_atestado)
 
-        campoNomeMedico.text = exame.nomeMedico
-        campoNomeExame.text = exame.specialty
-        campoData.text = exame.data
+        if (campoNomeMedico == null || campoData == null || campoNomeAtestado == null) {
+            Toast.makeText(this, "informação não encontrado", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
-        Log.d("DETALHES_EXAME", exame.id.toString())
-        Log.d("DATA:", exame.data.toString())
-        Log.d("SPECIALTY:", exame.specialty.toString())
+        campoNomeMedico.text = atestado.nomeMedico
+        campoNomeAtestado.text = atestado.specialty
+        campoData.text = atestado.data
 
-        fb.collection("usuarios").document(exame.id.toString()).get()
+        Log.d("DETALHES_ATESTADO", atestado.id.toString())
+        Log.d("DATA:", atestado.data.toString())
+        Log.d("SPECIALTY:", atestado.specialty.toString())
+
+        fb.collection("usuarios").document(atestado.id.toString()).get()
             .addOnSuccessListener { doc ->
                 if (doc != null && doc.exists()) {
-                    val nomeExame = doc.getString("examType").toString()
-                    Log.d("DETALHES_EXAME", nomeExame)
-                    campoNomeExame.text = nomeExame
+                    nomeAtestado = doc.getString("specialty").toString()
+                    Log.d("DETALHES_ATESTADO", nomeAtestado)
+                    campoNomeAtestado.text = nomeAtestado
                 }
                 else {
-                    Log.d("DETALHES_EXAME", "No such document")
+                    Log.d("DETALHES_ATESTADO", "No such document")
                 }
             }.addOnFailureListener { exception ->
                 Toast.makeText(this, "erro", Toast.LENGTH_SHORT).show()
@@ -77,7 +85,7 @@ class DetalhesExame : AppCompatActivity() {
             }
 
         buttonEmitirResultado.setOnClickListener{
-            Toast.makeText(this, "Emitindo resultado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Imprimindo Atestado/Prescrição", Toast.LENGTH_SHORT).show()
         }
     }
 }

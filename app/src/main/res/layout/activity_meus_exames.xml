@@ -7,41 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".meus_exames">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/top_toolbar"
+    <include
+        layout="@layout/layout_search_bar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="@android:color/black"
-        android:padding="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content" />
 
-        <!-- CardView para o campo de busca com cantos arredondados -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:backgroundTint="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="0dp">
-
-            <!-- Campo de busca -->
-            <EditText
-                android:id="@+id/search_field"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:hint="Digite o nome da especialidade"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
-
-        </androidx.cardview.widget.CardView>
-    </androidx.appcompat.widget.Toolbar>
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -53,16 +23,15 @@
         app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_toolbar"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/arrow_down_float" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewExames"
         android:layout_width="409dp"
         android:layout_height="614dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        android:layout_marginTop="44dp"
+        app:layout_constraintTop_toBottomOf="@+id/top_toolbar"
+        tools:layout_editor_absoluteX="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

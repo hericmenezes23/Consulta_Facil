@@ -34,14 +34,14 @@
             android:paddingStart="16dp">
 
             <TextView
-                android:id="@+id/text_nome_medico"
+                android:id="@+id/text_nome_medico_at"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dr. José Marcelino"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/text_especialidade_medico"
+                android:id="@+id/text_especialidade_medico_at"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -50,7 +50,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/text_data"
+                android:id="@+id/text_data_at"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -84,11 +84,11 @@
                 android:id="@+id/text_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de Exame:"
+                android:text="Atestado/Prescrição:"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/nome_exame"
+                android:id="@+id/nome_atestado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -102,12 +102,12 @@
     <!-- Botões -->
 
     <Button
-        android:id="@+id/button_resultado"
+        android:id="@+id/button_imprimir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_blue_light"
         android:padding="16dp"
-        android:text="RESULTADO DO EXAME"
+        android:text="IMPRIMIR"
         android:textColor="@android:color/white" />
 
 </LinearLayout>
