@@ -8,41 +8,63 @@
     tools:context=".Emitir_vacinas">
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:scaleX="2"
-        android:scaleY="2"
+        android:id="@+id/textViewNomePacienteEmitirVacina"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
         android:text="Paciente"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputNomeVacina"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText13"
-        android:layout_width="411dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="64dp"
-        android:hint="hint"
+        android:id="@+id/textInputNomeVacina"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Nome da vacina"
+        app:layout_constraintBottom_toTopOf="@+id/textInputDataAplicacao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNomePacienteEmitirVacina" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText"
-        android:layout_width="411dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="40dp"
-        android:hint="hint"
+        android:id="@+id/textInputDataAplicacao"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Data da aplicação"
+        app:layout_constraintBottom_toTopOf="@+id/SpinnerHospitalVacina"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText13" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputNomeVacina" />
+
+    <Spinner
+        android:id="@+id/SpinnerHospitalVacina"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="92dp"
+        app:layout_constraintBottom_toTopOf="@+id/btEmitirVacina"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputDataAplicacao" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btEmitirVacina"
         android:layout_width="236dp"
         android:layout_height="64dp"
         android:layout_marginTop="152dp"
@@ -50,5 +72,5 @@
         android:text="Emitir vacina"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputDataAplicacao" />
 </androidx.constraintlayout.widget.ConstraintLayout>

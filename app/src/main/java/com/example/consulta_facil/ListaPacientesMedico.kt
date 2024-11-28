@@ -17,12 +17,13 @@ class ListaPacientesMedico : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_lista_pacientes)
 
+        val next_view = intent.getStringExtra("next_view") ?: ""
         val dataset = mutableListOf<Consulta>()
-        getUsers()
+        getUsers(next_view)
     }
 
     // Função para buscar todos os usuarios
-    private fun getUsers() {
+    private fun getUsers(next_view: String) {
         val fb = Firebase.firestore
         val listaPacientes = mutableListOf<ListaPacientes>()
         val usersRef = fb.collection("usuarios")
@@ -39,7 +40,7 @@ class ListaPacientesMedico : AppCompatActivity() {
                 ))
             }
             recy = findViewById(R.id.recy_pacientes)
-            val adapter = ListaPacientesAdapter(listaPacientes, "consultas")
+            val adapter = ListaPacientesAdapter(listaPacientes, next_view)
             recy.layoutManager = LinearLayoutManager(this)
             recy.adapter = adapter
             adapter.notifyDataSetChanged()

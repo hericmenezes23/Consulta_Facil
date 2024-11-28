@@ -31,31 +31,17 @@ class MarcarExame : AppCompatActivity() {
 
         textName.text = patientName
 
-        val hospitals = arrayOf(
-            "Hospital Jose Inacio",
-            "Hospital Sao Joao",
-            "Hospital Sao Francisco"
-        )
-        // URLs for each hospital
-        val urls = arrayOf(
-            "https://www.hospitaljoseinacio.com.br",
-            "https://www.hospitalsaojoao.com.br",
-            "https://www.hospitalsaofrancisco.com.br"
-        )
-        // Create a map to store the hospital names and URLs
-        val hospitalMap = mutableMapOf<String, String>()
-        for (i in hospitals.indices) {
-            hospitalMap[hospitals[i]] = urls[i]
-        }
-
         val spinner = findViewById<Spinner>(R.id.SpinnerHospitalExam)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hospitals)
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            SpinnerHospitalData.hospitalNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val selectedItem = hospitals[position]
+                val selectedItem = SpinnerHospitalData.hospitalNames[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -78,7 +64,7 @@ class MarcarExame : AppCompatActivity() {
                 "date" to campoData.text.toString(),
                 "hour" to campoHora.text.toString(),
                 "hospital" to spinner.selectedItem.toString(),
-                "address_url" to hospitalMap[spinner.selectedItem.toString()]
+                "address_url" to SpinnerHospitalData.hospitalMap[spinner.selectedItem.toString()]
             )
 
             //save in firebase

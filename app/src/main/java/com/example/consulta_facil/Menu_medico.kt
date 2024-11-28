@@ -20,14 +20,17 @@ class Menu_medico : AppCompatActivity() {
         UserSession.userId = "LUDm9iOzuxQEntWKPtzz"
 
         val btNovaConsulta = findViewById<ImageButton>(R.id.button_nova_consulta)
+        val btEmitirAtestadoVacina = findViewById<ImageButton>(R.id.button_emitir_atestados_vacinas)
+
         btNovaConsulta.setOnClickListener {
             val intent = Intent(this, ListaPacientesMedico::class.java)
+            intent.putExtra("next_view", "consultas")
             startActivity(intent)
         }
 
-        val btEmitirAtestadoVacina = findViewById<ImageButton>(R.id.button_emitir_atestados_vacinas)
         btEmitirAtestadoVacina.setOnClickListener {
-            val intent = Intent(this, PacientesVacinas::class.java)
+            val intent = Intent(this, ListaPacientesMedico::class.java)
+            intent.putExtra("next_view", "vacinas")
             startActivity(intent)
         }
     }

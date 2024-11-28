@@ -26,6 +26,17 @@ class CPF_Acesso : AppCompatActivity() {
             }
             Toast.makeText(this, "Checando CPF...", Toast.LENGTH_SHORT).show()
 
+            // atualizando todos os hospitais no SpinnerHospitalData
+            fb.collection("hospitais").get()
+                .addOnSuccessListener { docs ->
+                    for (doc in docs.documents){
+                        val nome = doc.get("nome").toString()
+                        val url = doc.get("url").toString()
+                        SpinnerHospitalData.hospitalNames.add(nome)
+                        SpinnerHospitalData.hospitalMap += (nome to url)
+                    }
+                }
+
             //Toast.makeText(this, cpfCampo.text.toString(), Toast.LENGTH_SHORT).show()
             fb.collection("usuarios").get()
                 .addOnSuccessListener { docs ->
