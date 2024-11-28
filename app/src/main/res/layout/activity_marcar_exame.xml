@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MarcarCirurgia">
+    tools:context=".Menu">
 
     <TextView
-        android:id="@+id/textViewNameSurgery"
+        android:id="@+id/textViewNameExams"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="10dp"
@@ -15,78 +15,88 @@
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="22dp"
         android:text="Paciente"
-        app:layout_constraintBottom_toTopOf="@+id/textInputTypeSurgery"
+        app:layout_constraintBottom_toTopOf="@+id/textInputTypeExam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputTypeSurgery"
+        android:id="@+id/textInputTypeExam"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="TIPO DE CIRURGIA"
-        app:layout_constraintBottom_toTopOf="@+id/textInputDateSurgery"
+        android:hint="TIPO DE EXAME"
+        app:layout_constraintBottom_toTopOf="@+id/textInputDateExam"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNameSurgery" />
+        app:layout_constraintTop_toBottomOf="@id/textViewNameExams" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputDateSurgery"
+        android:id="@+id/textInputDateExam"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="DATA DA CIRURGIA"
-        app:layout_constraintBottom_toTopOf="@+id/textInputHourSurgery"
+        android:hint="DATA DO EXAME"
+        app:layout_constraintBottom_toTopOf="@+id/textInputHourExam"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputTypeSurgery" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputTypeExam" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputHourSurgery"
+        android:id="@+id/textInputHourExam"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="HORA DA CIRURGIA"
-        app:layout_constraintBottom_toTopOf="@+id/SpinnerHospitalSurgery"
+        android:hint="HORA DO EXAME"
+        app:layout_constraintBottom_toTopOf="@+id/SpinnerHospitalExam"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.777"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputDateSurgery" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputDateExam" />
 
     <Spinner
-        android:id="@+id/SpinnerHospitalSurgery"
+        android:id="@+id/SpinnerHospitalExam"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/btAvancarSurgery"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/cadastrarExame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputHourSurgery" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textInputHourExam" />
 
     <Button
-        android:id="@+id/btAvancarSurgery"
-        android:layout_width="144dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="195dp"
+        android:id="@+id/cadastrarExame"
+        android:layout_width="153dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="109dp"
         android:text="Confirmar"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#ED0000"
+        android:textColorHint="#FF0404"
+        android:textColorLink="#E600FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SpinnerHospitalSurgery" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputHourExam"
+        app:rippleColor="#AF0909"
+        app:strokeColor="#BC0808" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="-47dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

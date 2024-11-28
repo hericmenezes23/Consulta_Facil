@@ -17,16 +17,13 @@ class MyAdapter(var list:List<Pessoa>):RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var context = holder.item.context
         holder.tv.text = list.get(position).nome +", "+list.get(position).cidade
         holder.btn.setOnClickListener {
-            var intent = Intent(holder.itemView.context,MainActivityPessoa::class.java)
+            val intent = Intent(holder.itemView.context,MainActivityPessoa::class.java)
             intent.putExtra("consulta",holder.tv.text.toString() )
 
             holder.itemView.context.startActivity(intent)
-
         }
-
     }
 
     override fun getItemCount(): Int {

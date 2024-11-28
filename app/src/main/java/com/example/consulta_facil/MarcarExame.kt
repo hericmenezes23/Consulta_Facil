@@ -1,8 +1,6 @@
 package com.example.consulta_facil
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -11,37 +9,39 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class MarcarCirurgia : AppCompatActivity() {
+class MarcarExame : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_marcar_cirurgia)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_marcar_exame)
 
-        val textName = findViewById<TextView>(R.id.textViewNameSurgery)
-        val campoTipo = findViewById<EditText>(R.id.textInputTypeSurgery)
-        val campoData = findViewById<EditText>(R.id.textInputDateSurgery)
-        val campoHora = findViewById<EditText>(R.id.textInputHourSurgery)
-        val btCadastrarCirurgia = findViewById<Button>(R.id.btAvancarSurgery)
+        val textName = findViewById<TextView>(R.id.textViewNameExams)
+        val campoTipo = findViewById<EditText>(R.id.textInputTypeExam)
+        val campoData = findViewById<EditText>(R.id.textInputDateExam)
+        val campoHora = findViewById<EditText>(R.id.textInputHourExam)
+        val btCadstrarConsulta = findViewById<Button>(R.id.cadastrarExame)
         val patientName = intent.getStringExtra("name").toString()
         val patientId = intent.getStringExtra("id").toString()
-        var fb = Firebase.firestore
+        val fb = Firebase.firestore
 
         textName.text = patientName
 
+        val spinner = findViewById<Spinner>(R.id.SpinnerHospitalExam)
         val adapter = ArrayAdapter(
             this,
             android.R.layout.simple_spinner_item,
-            SpinnerHospitalData.hospitalNames
-        )
-        val spinner = findViewById<Spinner>(R.id.SpinnerHospitalSurgery)
+            SpinnerHospitalData.hospitalNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                // Now you can use selectedItem, which holds the selected hospital name
+                // val selectedItem = SpinnerHospitalData.hospitalNames[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -49,7 +49,7 @@ class MarcarCirurgia : AppCompatActivity() {
             }
         }
 
-        btCadastrarCirurgia.setOnClickListener {
+        btCadstrarConsulta.setOnClickListener{
             // Check if any of the fields are empty
             if (campoTipo.text.isEmpty() || campoData.text.isEmpty() || campoHora.text.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
@@ -69,14 +69,14 @@ class MarcarCirurgia : AppCompatActivity() {
 
             //save in firebase
             val appointmentsRef = fb.collection("usuarios")
-                .document(patientId).collection("cirurgias")
+                .document(patientId).collection("exames")
             appointmentsRef.add(map)
                 .addOnSuccessListener { documentReference ->
-                    Toast.makeText(this, "Cirurgia marcada com sucesso!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Exame marcado com sucesso!", Toast.LENGTH_LONG).show()
                     finish()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Erro ao marcar cirurgia: $e", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Erro ao marcar exame: $e", Toast.LENGTH_SHORT).show()
                 }
         }
     }

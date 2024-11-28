@@ -38,7 +38,6 @@ class DetalhesConsulta : AppCompatActivity() {
 
         val fb = Firebase.firestore
         val consulta = intent.getParcelableExtra<Consulta>("consulta")
-        var endereco = ""
 
         if (consulta == null) {
             Toast.makeText(this, "Consulta não encontrada", Toast.LENGTH_SHORT).show()
