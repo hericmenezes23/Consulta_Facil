@@ -18,7 +18,7 @@ class minhasConsultas : AppCompatActivity() {
         setContentView(R.layout.activity_minhas_consultas)
 
         var dataset = mutableListOf<Consulta>()
-        getUserAppointments("4S8sdQreEiVDTp92096L")
+//        getUserAppointments("4S8sdQreEiVDTp92096L")
         //print all consultas
         //print all consultas
         dataset.forEach {

@@ -11,19 +11,21 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class EmitirExame : AppCompatActivity() {
+class EmitirConsultas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_emitir_exames_medico)
+        setContentView(R.layout.activity_emitir_consultas)
 
-        val textName = findViewById<TextView>(R.id.textViewNameExams)
-        val campoTipo = findViewById<EditText>(R.id.textInputTypeExam)
-        val campoData = findViewById<EditText>(R.id.textInputDate)
-        val campoHora = findViewById<EditText>(R.id.textInputHour)
+        val textName = findViewById<TextView>(R.id.textViewNameConsult)
+        val campoTipo = findViewById<EditText>(R.id.textInputTypeConsult)
+        val campoData = findViewById<EditText>(R.id.textInputDateConsult)
+        val campoHora = findViewById<EditText>(R.id.textInputHourConsult)
         val btCadstrarConsulta = findViewById<Button>(R.id.cadastrarConsulta)
         val patientName = intent.getStringExtra("name").toString()
         val patientId = intent.getStringExtra("id").toString()
@@ -48,18 +50,16 @@ class EmitirExame : AppCompatActivity() {
             hospitalMap[hospitals[i]] = urls[i]
         }
 
-        val spinner = findViewById<Spinner>(R.id.mySpinner)
+        val spinner = findViewById<Spinner>(R.id.SpinnerHospitalConsult)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hospitals)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val selectedItem = hospitals[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // Handle case where nothing is selected
             }
         }
 
