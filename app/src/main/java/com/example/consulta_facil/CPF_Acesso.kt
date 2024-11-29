@@ -41,15 +41,19 @@ class CPF_Acesso : AppCompatActivity() {
             fb.collection("usuarios").get()
                 .addOnSuccessListener { docs ->
                     var idFound = ""
+                    var crm = ""
                     for (doc in docs){
                         if(doc.get("cpf")==cpfCampo.text.toString()){
                             idFound = doc.id
+                            crm = doc.get("crm").toString()
                             break
                         }
                     }
                     if (idFound == "") {
+
                         val intent = Intent(this, Primeiro_Acesso1::class.java)
                         intent.putExtra("cpf", cpfCampo.text.toString())
+                        intent.putExtra("crm", crm)
                         startActivity(intent)
                     } else {
                         val intent = Intent(this, senha_acesso::class.java)

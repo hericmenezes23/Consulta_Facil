@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -26,9 +28,15 @@ class senha_acesso : AppCompatActivity() {
         setContentView(R.layout.activity_senha_acesso)
         val bt_senha = findViewById<Button>(R.id.EntrarSenha)
         val senha = findViewById<EditText>(R.id.SenhaView)
+        val cbMenuMedico = findViewById<CheckBox>(R.id.checkBoxMenuMedico)
         val fb = Firebase.firestore
 
         val idFound = intent.getStringExtra("id")
+        val crm = intent.getStringExtra("crm")
+
+        if (crm != "") {
+            cbMenuMedico.visibility = View.VISIBLE
+        }
 
         bt_senha.setOnClickListener {
             fb.collection("usuarios")
@@ -42,7 +50,7 @@ class senha_acesso : AppCompatActivity() {
                         UserSession.userName = doc.get("user").toString()
                         UserSession.userCpf = doc.get("cpf").toString()
 
-                        if (doc.get("crm") != null && doc.get("crm") != "") {
+                        if (doc.get("crm") != null && doc.get("crm") != "" && cbMenuMedico.isChecked) {
                             Toast.makeText(this, "crm: " + doc.get("crm").toString(), Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, Menu_medico::class.java)
                             startActivity(intent)

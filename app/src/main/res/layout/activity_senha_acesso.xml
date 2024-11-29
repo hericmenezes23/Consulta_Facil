@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".senha_acesso">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="115dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="244dp"
-        android:scaleX="3"
-        android:scaleY="3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="54dp"
+        android:gravity="center"
         android:text="Digite sua senha"
-        android:textAlignment="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,6 +26,9 @@
         android:id="@+id/textInputLayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
@@ -33,19 +39,38 @@
             android:layout_height="wrap_content"
             android:hint="Senha"
             android:inputType="text|textPassword|textNoSuggestions" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/EntrarSenha"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <CheckBox
+            android:id="@+id/checkBoxMenuMedico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menu Médico "
+            android:visibility="invisible" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/EntrarSenha"
         android:layout_width="250dp"
         android:layout_height="65dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginBottom="176dp"
         android:backgroundTint="#1919FF"
         android:text="Entrar"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
