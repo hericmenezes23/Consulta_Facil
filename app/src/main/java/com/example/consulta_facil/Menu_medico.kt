@@ -12,12 +12,9 @@ class Menu_medico : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_medico)
 
-        UserSession.userName = "Otavio"
-        UserSession.userCpf = "12345678910"
-        UserSession.userId = "LUDm9iOzuxQEntWKPtzz"
-
         val btNovaConsulta = findViewById<ImageButton>(R.id.button_nova_consulta)
         val btEmitirAtestadoVacina = findViewById<ImageButton>(R.id.button_emitir_atestados_vacinas)
+        val btCadastrarHospital = findViewById<ImageButton>(R.id.button_cadastrar_hospital)
 
         btNovaConsulta.setOnClickListener {
             val intent = Intent(this, ListaPacientesMedico::class.java)
@@ -28,6 +25,11 @@ class Menu_medico : AppCompatActivity() {
         btEmitirAtestadoVacina.setOnClickListener {
             val intent = Intent(this, ListaPacientesMedico::class.java)
             intent.putExtra("next_view", "vacinas")
+            startActivity(intent)
+        }
+
+        btCadastrarHospital.setOnClickListener {
+            val intent = Intent(this, CadastrarHospitais::class.java)
             startActivity(intent)
         }
     }

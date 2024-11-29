@@ -2,6 +2,7 @@ package com.example.consulta_facil
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -50,7 +51,6 @@ class CPF_Acesso : AppCompatActivity() {
                         }
                     }
                     if (idFound == "") {
-
                         val intent = Intent(this, Primeiro_Acesso1::class.java)
                         intent.putExtra("cpf", cpfCampo.text.toString())
                         intent.putExtra("crm", crm)
@@ -58,6 +58,9 @@ class CPF_Acesso : AppCompatActivity() {
                     } else {
                         val intent = Intent(this, senha_acesso::class.java)
                         intent.putExtra("id", idFound)
+                        intent.putExtra("crm", crm)
+                        Log.d("TAG", "crm: " + crm)
+
                         startActivity(intent)
                     }
 

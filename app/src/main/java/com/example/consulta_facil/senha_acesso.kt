@@ -34,7 +34,7 @@ class senha_acesso : AppCompatActivity() {
         val idFound = intent.getStringExtra("id")
         val crm = intent.getStringExtra("crm")
 
-        if (crm != "") {
+        if (crm != null && crm != "") {
             cbMenuMedico.visibility = View.VISIBLE
         }
 
@@ -51,7 +51,7 @@ class senha_acesso : AppCompatActivity() {
                         UserSession.userCpf = doc.get("cpf").toString()
 
                         if (doc.get("crm") != null && doc.get("crm") != "" && cbMenuMedico.isChecked) {
-                            Toast.makeText(this, "crm: " + doc.get("crm").toString(), Toast.LENGTH_SHORT).show()
+                            Log.d("TAG", "crm: " + doc.get("crm"))
                             val intent = Intent(this, Menu_medico::class.java)
                             startActivity(intent)
                         } else {
