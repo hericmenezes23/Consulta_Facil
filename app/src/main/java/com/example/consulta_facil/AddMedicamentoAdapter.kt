@@ -19,9 +19,11 @@ class AddMedicamentosAdapter(private val medicamentos: MutableList<Medicamento>)
 
     override fun onBindViewHolder(holder: MedicamentoViewHolder, position: Int) {
         val medicamento = medicamentos[position]
+        Log.d("AddMedicamentoAdapter BEFORE", "medicamento: $medicamento")
         holder.medicamentoNome.text = medicamento.nome
         holder.medicamentoDias.text = medicamento.dias
         holder.medicamentoPeriodicidade.text = medicamento.periodicidade
+        Log.d("AddMedicamentoAdapter", "medicamento: $medicamento")
     }
 
     override fun getItemCount(): Int {
@@ -33,7 +35,10 @@ class AddMedicamentosAdapter(private val medicamentos: MutableList<Medicamento>)
         medicamentos.add(medicamentos.size, novoMedicamento)
         //print all list medicamentos
         Log.d("AddMedicamento", "medicamentos: $medicamentos")
+        Log.d("AddMedicamento", "position: ${medicamentos.size - 1}")
         notifyDataSetChanged()
+        Log.d("AddMedicamento", "position: ${medicamentos.size - 1}")
+        Log.d("AddMedicamento", "medicamentos: $medicamentos")
     }
 }
 

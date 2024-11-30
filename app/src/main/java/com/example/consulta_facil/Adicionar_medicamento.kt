@@ -2,6 +2,7 @@ package com.example.consulta_facil
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -30,6 +31,7 @@ class Adicionar_medicamento : AppCompatActivity() {
             val intent = Intent()
             intent.putExtra("medicamento", medicamento)
             setResult(RESULT_OK, intent)
+            Log.d("AdicionarMedicamento", "medicamento: $medicamento")
             finish()
         }
     }
