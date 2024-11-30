@@ -31,7 +31,7 @@ class CPF_Acesso : AppCompatActivity() {
             fb.collection("hospitais").get()
                 .addOnSuccessListener { docs ->
                     for (doc in docs.documents){
-                        val nome = doc.get("nome").toString()
+                        val nome = doc.get("name").toString()
                         val url = doc.get("url").toString()
                         SpinnerHospitalData.hospitalNames.add(nome)
                         SpinnerHospitalData.hospitalMap += (nome to url)
