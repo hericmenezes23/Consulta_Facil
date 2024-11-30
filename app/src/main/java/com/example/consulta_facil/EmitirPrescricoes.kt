@@ -6,11 +6,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class EmitirPrescricoes : AppCompatActivity() {
     private val medicamentosList = mutableListOf<Medicamento>()
@@ -22,8 +26,13 @@ class EmitirPrescricoes : AppCompatActivity() {
 
         val btAddMedic = findViewById<Button>(R.id.ADD_BT)
         val btEmitirPrescricao = findViewById<Button>(R.id.btEmitirPrescricao)
+        val textViewPaciente = findViewById<TextView>(R.id.textViewAddMedicamentos)
 
-        medicamentosList.add(Medicamento("Medicamento 1", "2 dias", "1 vez ao dia"))
+        val idPaciente = intent.getStringExtra("id").toString()
+        val nomePaciente = intent.getStringExtra("name").toString()
+
+        textViewPaciente.text = nomePaciente
+
         addMedicamentosAdapter = AddMedicamentosAdapter(medicamentosList)
         val recyclerView = findViewById<RecyclerView>(R.id.recycleViewAddMedicamentos)
         recyclerView.layoutManager = LinearLayoutManager(this) // Or another layout manager
@@ -40,8 +49,29 @@ class EmitirPrescricoes : AppCompatActivity() {
 
         btEmitirPrescricao.setOnClickListener {
             // Send to firestore
-
-
+            var success = true
+            for (medicamento in medicamentosList) {
+                Log.d("EmitirPrescricoes", "medicamento: $medicamento")
+                // Send to firestore
+                val map = hashMapOf(
+                    "name" to medicamento.nome,
+                    "days" to medicamento.dias,
+                    "periodicity" to medicamento.periodicidade
+                )
+                val fb = Firebase.firestore
+                val appointmentsRef = fb.collection("usuarios")
+                    .document(idPaciente)
+                    .collection("prescricoes")
+                appointmentsRef.add(map).addOnFailureListener { e ->
+                    success = false
+                }
+            }
+            if (success) {
+                Toast.makeText(this, "Prescrição cadastrada com sucesso!", Toast.LENGTH_LONG).show()
+                finish()
+            } else {
+                Toast.makeText(this, "Erro ao cadastrar prescrição", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
