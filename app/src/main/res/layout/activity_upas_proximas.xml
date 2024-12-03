@@ -30,98 +30,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_toolbar">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recy"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:paddingVertical="10dp">
-
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="194dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="UPA 24h - Cristo Redentor Endereço: Av. Pres. Castelo Branco, s/n - Cristo Redentor, Fortaleza - CE, 60010-450" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:paddingVertical="10dp">
-
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="194dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="UPA 24h - Autran Nunes Endereço: Av. Senador Fernandes Távora, 2433 - Autran Nunes, Fortaleza - CE, 60526-642 " />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:paddingVertical="10dp">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="194dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="UPA 24h - Vila Velha Endereço: Av. L - Vila Velha, Fortaleza - CE, 60810-670 " />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
